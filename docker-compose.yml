@@ -1,0 +1,57 @@
+version: '3.8'
+
+services:
+  # X4 REST Server (Phase 2 - when submodule is configured)
+  # Note: Requires X4 game running and REST server installed
+  # x4-rest-server:
+  #   build:
+  #     context: ./vendor/x4-rest-server
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - "8080:8080"
+  #   environment:
+  #     - X4_REST_PORT=8080
+  #   volumes:
+  #     - ./vendor/x4-rest-server:/app
+  #   restart: unless-stopped
+
+  # MCP Server
+  mcp-server:
+    build:
+      context: .
+      dockerfile: packages/mcp-server/Dockerfile
+    ports:
+      - '${MCP_SERVER_PORT:-3000}:3000'
+    environment:
+      - NODE_ENV=${NODE_ENV:-development}
+      - X4_REST_URL=${X4_REST_URL:-http://localhost:8080}
+      - X4_REST_API_KEY=${X4_REST_API_KEY}
+    volumes:
+      - ./packages/mcp-server:/app
+      - /app/node_modules
+    depends_on:
+      - x4-rest-server
+    restart: unless-stopped
+    command: pnpm run dev
+
+  # Browser Overlay (Phase 3)
+  overlay:
+    build:
+      context: .
+      dockerfile: packages/overlay/Dockerfile
+    ports:
+      - '${OVERLAY_PORT:-5173}:5173'
+    environment:
+      - NODE_ENV=${NODE_ENV:-development}
+      - VITE_MCP_SERVER_URL=http://mcp-server:3000
+    volumes:
+      - ./packages/overlay:/app
+      - /app/node_modules
+    depends_on:
+      - mcp-server
+    restart: unless-stopped
+    command: pnpm run dev
+
+networks:
+  default:
+    name: x4-ai-network
