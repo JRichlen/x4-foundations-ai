@@ -20,6 +20,7 @@
 
 - **Visual Studio Code:** Recommended IDE ([Download](https://code.visualstudio.com/))
 - **Docker:** For containerized X4 REST Server (optional)
+- **Beads (bd):** Git-backed issue tracking for AI agents ([Installation](#beads-setup-optional))
 
 ---
 
@@ -109,6 +110,105 @@ MCP_SERVER_PORT=3000
 # Overlay configuration (Phase 3)
 OVERLAY_PORT=5173
 ```
+
+---
+
+## Beads Setup (Optional)
+
+Beads (bd) is a distributed, git-backed issue tracker for AI agents. It provides persistent task tracking with dependency management across sessions.
+
+### Why Beads?
+
+- **Agent-optimized:** JSON output, dependency tracking, and auto-ready task detection
+- **Git-backed:** Issues sync via git, work offline, branch-scoped
+- **Zero conflict:** Hash-based IDs prevent merge collisions
+
+### Installation
+
+#### 1. Install the CLI (choose one method)
+
+```bash
+# Homebrew (recommended for macOS/Linux)
+brew install beads
+
+# npm
+npm install -g @beads/bd
+
+# Go (requires Go 1.24+)
+go install github.com/steveyegge/beads/cmd/bd@latest
+
+# Install script
+curl -fsSL https://raw.githubusercontent.com/steveyegge/beads/main/scripts/install.sh | bash
+```
+
+#### 2. Install MCP Server (for VS Code Copilot)
+
+```bash
+# Using uv (recommended)
+uv tool install beads-mcp
+
+# Using pip
+pip install beads-mcp
+
+# Using pipx
+pipx install beads-mcp
+```
+
+#### 3. Initialize Beads in the Project
+
+```bash
+cd x4-foundations-ai
+bd init --quiet
+```
+
+This creates a `.beads/` directory with the issue database.
+
+#### 4. Verify Installation
+
+```bash
+bd version
+bd help
+bd ready  # List available tasks
+```
+
+### VS Code MCP Configuration
+
+The project includes `.vscode/mcp.json` for Copilot integration:
+
+```json
+{
+  "servers": {
+    "beads": {
+      "command": "beads-mcp"
+    }
+  }
+}
+```
+
+Restart VS Code after installation for MCP to take effect.
+
+### Usage
+
+| Command | Action |
+|---------|--------|
+| `bd ready` | List tasks with no open blockers |
+| `bd create "Title" -p 0` | Create a P0 (highest priority) task |
+| `bd show <id>` | View task details |
+| `bd close <id>` | Complete work |
+| `bd sync` | Sync with git (run at session end) |
+
+### Session Workflow
+
+1. **Start:** `bd ready` to find unblocked work
+2. **Work:** Create sub-issues with `bd create` as needed
+3. **End:** `bd sync` to persist changes to git
+
+### Documentation
+
+- [Beads Repository](https://github.com/steveyegge/beads)
+- [Installation Guide](https://github.com/steveyegge/beads/blob/main/docs/INSTALLING.md)
+- [Copilot Integration](https://github.com/steveyegge/beads/blob/main/docs/COPILOT_INTEGRATION.md)
+- [Skill Research Report](./agent-skills-research/steveyegge-beads.md)
 
 ---
 

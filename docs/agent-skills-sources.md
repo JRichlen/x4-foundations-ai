@@ -55,15 +55,16 @@
 | 33  | [muratcankoylan/Agent-Skills-for-Context-Engineering](https://github.com/muratcankoylan/Agent-Skills-for-Context-Engineering)                 | ⚪ Not Started | -            | -               | -      |
 | 34  | [jakedahn/pomodoro](https://github.com/jakedahn/pomodoro)                                                                                     | ⚪ Not Started | -            | -               | -      |
 | 35  | [yzfly/Mind-Cloning-Engineering](https://github.com/yzfly/Mind-Cloning-Engineering)                                                           | ⚪ Not Started | -            | -               | -      |
+| 36  | [steveyegge/beads](https://github.com/steveyegge/beads)                                                                                       | 🟢 Complete    | 1            | 🟩 NEED TO HAVE | [Report](agent-skills-research/steveyegge-beads.md) |
 
 ---
 
 ## Summary Statistics
 
-- **Total Sources:** 35
+- **Total Sources:** 36
 - **Not Started:** 35
 - **In Progress:** 0
-- **Complete:** 0
+- **Complete:** 1
 - **Filtered Out:** 0
 - **Blocked:** 0
 
