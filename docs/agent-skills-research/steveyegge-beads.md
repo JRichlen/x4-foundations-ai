@@ -2,8 +2,8 @@
 
 **Source:** [steveyegge/beads](https://github.com/steveyegge/beads)  
 **Link:** https://github.com/steveyegge/beads  
-**Type:** CLI Tool + MCP Server  
-**Language:** Go (CLI), Python (MCP Server)
+**Type:** CLI Tool  
+**Language:** Go
 
 ---
 
@@ -14,11 +14,11 @@ Beads (bd) is a distributed, git-backed graph issue tracker designed specificall
 ### Key Features
 
 - **Git as Database:** Issues stored as JSONL in `.beads/`. Versioned, branched, and merged like code.
-- **Agent-Optimized:** JSON output, dependency tracking, and auto-ready task detection.
+- **Agent-Optimized:** JSON output (`--json` flag), dependency tracking, and auto-ready task detection.
 - **Zero Conflict:** Hash-based IDs (`bd-a1b2`) prevent merge collisions in multi-agent/multi-branch workflows.
+- **CLI-First:** Direct command-line interface, context-efficient (~1-2k tokens vs 10-50k for MCP).
 - **Invisible Infrastructure:** SQLite local cache for speed; background daemon for auto-sync.
 - **Compaction:** Semantic "memory decay" summarizes old closed tasks to save context window.
-- **MCP Integration:** Model Context Protocol server for Copilot/Claude integration.
 
 ---
 
@@ -65,16 +65,9 @@ Beads provides critical agent workflow infrastructure (task tracking, dependency
 
 ## Integration Notes
 
-### Components
-
-| Component | Purpose | When Needed |
-|-----------|---------|-------------|
-| **bd CLI** | Core command-line tool | Always - foundation |
-| **beads-mcp** | MCP server for Copilot | For VS Code Copilot integration |
-
 ### Installation Methods
 
-**CLI Installation (choose one):**
+Choose one method to install the CLI:
 
 ```bash
 # Homebrew (recommended for macOS/Linux)
@@ -86,21 +79,8 @@ npm install -g @beads/bd
 # Go (requires Go 1.24+)
 go install github.com/steveyegge/beads/cmd/bd@latest
 
-# Install script
+# Install script (Linux/macOS/FreeBSD)
 curl -fsSL https://raw.githubusercontent.com/steveyegge/beads/main/scripts/install.sh | bash
-```
-
-**MCP Server Installation:**
-
-```bash
-# Using uv (recommended)
-uv tool install beads-mcp
-
-# Using pip
-pip install beads-mcp
-
-# Using pipx
-pipx install beads-mcp
 ```
 
 ### Project Initialization
@@ -115,20 +95,6 @@ bd version
 bd help
 ```
 
-### VS Code MCP Configuration
-
-Create `.vscode/mcp.json`:
-
-```json
-{
-  "servers": {
-    "beads": {
-      "command": "beads-mcp"
-    }
-  }
-}
-```
-
 ### Essential Commands
 
 | Command | Action |
@@ -138,7 +104,18 @@ Create `.vscode/mcp.json`:
 | `bd show <id>` | View task details and audit trail |
 | `bd close <id>` | Complete work |
 | `bd sync` | Sync with git (run at session end) |
-| `bd dep add <child> <parent>` | Link tasks |
+| `bd list` | List all issues |
+| `bd dep add <child> <parent>` | Link tasks with dependencies |
+
+### JSON Output for Agents
+
+All commands support `--json` flag for structured output:
+
+```bash
+bd ready --json
+bd show <id> --json
+bd create "Title" -p 1 --json
+```
 
 ### Agent Session Workflow
 
@@ -160,18 +137,18 @@ Beads supports hierarchical IDs for epics:
 
 **Runtime:**
 - Git (for sync)
-- Python 3.10+ or uv (for beads-mcp only)
 
-**No runtime dependencies for CLI** - single static binary.
+**No other runtime dependencies** - single static binary.
 
 ---
 
 ## Compatibility
 
-- ✅ Works with VS Code + GitHub Copilot
+- ✅ Works with any environment with shell access
+- ✅ Works with VS Code + GitHub Copilot (via CLI)
 - ✅ Works with Claude Code
 - ✅ Works with Cursor
-- ✅ Works with terminal/CLI
+- ✅ Works with terminal/scripts
 - ✅ Git-based sync (no external services)
 - ✅ Offline-first operation
 
@@ -185,7 +162,6 @@ Beads supports hierarchical IDs for epics:
 
 **Breakdown:**
 - CLI installation: 5 minutes
-- MCP server setup: 10 minutes  
 - Project initialization: 5 minutes
 - Documentation updates: 30 minutes
 
@@ -195,7 +171,6 @@ Beads supports hierarchical IDs for epics:
 
 - [README](https://github.com/steveyegge/beads#readme)
 - [Installation Guide](https://github.com/steveyegge/beads/blob/main/docs/INSTALLING.md)
-- [Copilot Integration](https://github.com/steveyegge/beads/blob/main/docs/COPILOT_INTEGRATION.md)
 - [Agent Instructions](https://github.com/steveyegge/beads/blob/main/AGENT_INSTRUCTIONS.md)
 - [FAQ](https://github.com/steveyegge/beads/blob/main/docs/FAQ.md)
 

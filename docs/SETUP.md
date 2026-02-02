@@ -122,6 +122,7 @@ Beads (bd) is a distributed, git-backed issue tracker for AI agents. It provides
 - **Agent-optimized:** JSON output, dependency tracking, and auto-ready task detection
 - **Git-backed:** Issues sync via git, work offline, branch-scoped
 - **Zero conflict:** Hash-based IDs prevent merge collisions
+- **CLI-first:** Direct command-line usage, context-efficient (~1-2k tokens)
 
 ### Installation
 
@@ -137,24 +138,13 @@ npm install -g @beads/bd
 # Go (requires Go 1.24+)
 go install github.com/steveyegge/beads/cmd/bd@latest
 
-# Install script
+# Install script (Linux/macOS/FreeBSD)
 curl -fsSL https://raw.githubusercontent.com/steveyegge/beads/main/scripts/install.sh | bash
 ```
 
-#### 2. Install MCP Server (for VS Code Copilot)
+#### 2. Initialize Beads in the Project
 
-```bash
-# Using uv (recommended)
-uv tool install beads-mcp
-
-# Using pip
-pip install beads-mcp
-
-# Using pipx
-pipx install beads-mcp
-```
-
-#### 3. Initialize Beads in the Project
+The project is already initialized with beads. For new clones:
 
 ```bash
 cd x4-foundations-ai
@@ -163,29 +153,13 @@ bd init --quiet
 
 This creates a `.beads/` directory with the issue database.
 
-#### 4. Verify Installation
+#### 3. Verify Installation
 
 ```bash
 bd version
 bd help
 bd ready  # List available tasks
 ```
-
-### VS Code MCP Configuration
-
-The project includes `.vscode/mcp.json` for Copilot integration:
-
-```json
-{
-  "servers": {
-    "beads": {
-      "command": "beads-mcp"
-    }
-  }
-}
-```
-
-Restart VS Code after installation for MCP to take effect.
 
 ### Usage
 
@@ -196,6 +170,8 @@ Restart VS Code after installation for MCP to take effect.
 | `bd show <id>` | View task details |
 | `bd close <id>` | Complete work |
 | `bd sync` | Sync with git (run at session end) |
+| `bd list` | List all issues |
+| `bd dep add <child> <parent>` | Link tasks with dependencies |
 
 ### Session Workflow
 
@@ -207,7 +183,6 @@ Restart VS Code after installation for MCP to take effect.
 
 - [Beads Repository](https://github.com/steveyegge/beads)
 - [Installation Guide](https://github.com/steveyegge/beads/blob/main/docs/INSTALLING.md)
-- [Copilot Integration](https://github.com/steveyegge/beads/blob/main/docs/COPILOT_INTEGRATION.md)
 - [Skill Research Report](./agent-skills-research/steveyegge-beads.md)
 
 ---
