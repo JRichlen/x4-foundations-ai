@@ -6,6 +6,42 @@ This document provides guidance on leveraging GitHub Copilot Spaces and other AI
 
 ---
 
+## Issue Tracking with Beads
+
+This project uses **bd (beads)** for distributed, git-backed issue tracking optimized for AI agents.
+
+### Quick Reference
+
+| Command | Action |
+|---------|--------|
+| `bd ready` | List tasks with no open blockers |
+| `bd create "Title" -p 0` | Create a P0 task |
+| `bd show <id>` | View task details and audit trail |
+| `bd close <id>` | Complete work |
+| `bd sync` | Sync with git (run at session end) |
+| `bd dep add <child> <parent>` | Link tasks |
+
+### MCP Integration
+
+With MCP configured (`.vscode/mcp.json`), you can use natural language in Copilot Chat:
+
+| You say | Copilot does |
+|---------|--------------|
+| "What issues are ready to work on?" | Calls `beads_ready` |
+| "Create a bug for the login timeout" | Calls `beads_create` with type=bug |
+| "Show me issue bd-42" | Calls `beads_show` |
+| "Mark bd-42 as complete" | Calls `beads_close` |
+
+### Session Workflow
+
+1. Start session: `bd ready` to find unblocked work
+2. During work: Create sub-issues as needed with `bd create`
+3. End session: `bd sync` to persist changes to git
+
+For detailed instructions, see [Beads Documentation](https://github.com/steveyegge/beads).
+
+---
+
 ## Available Spaces
 
 ### 1. X4 Foundations Space
