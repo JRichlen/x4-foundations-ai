@@ -1,3 +1,5 @@
 
-# Use bd merge for beads JSONL files
+# Use bd merge for beads JSONL files.
+# To enable this custom merge driver, configure git, for example:
+#   git config merge.beads.driver "bd merge %O %A %B %P"
 .beads/issues.jsonl merge=beads
