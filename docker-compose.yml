@@ -21,7 +21,7 @@ services:
       context: .
       dockerfile: packages/mcp-server/Dockerfile
     ports:
-      - "${MCP_SERVER_PORT:-3000}:3000"
+      - '${MCP_SERVER_PORT:-3000}:3000'
     environment:
       - NODE_ENV=${NODE_ENV:-development}
       - X4_REST_URL=${X4_REST_URL:-http://localhost:8080}
@@ -40,7 +40,7 @@ services:
       context: .
       dockerfile: packages/overlay/Dockerfile
     ports:
-      - "${OVERLAY_PORT:-5173}:5173"
+      - '${OVERLAY_PORT:-5173}:5173'
     environment:
       - NODE_ENV=${NODE_ENV:-development}
       - VITE_MCP_SERVER_URL=http://mcp-server:3000

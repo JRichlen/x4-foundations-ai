@@ -1,4 +1,5 @@
 # Architecture Documentation
+
 ## X4 Foundations AI Assistant
 
 **Version:** 1.0.0  
@@ -22,26 +23,26 @@ graph TB
     subgraph "Client Layer"
         A[Browser Overlay<br/>React + Vercel AI SDK]
     end
-    
+
     subgraph "MCP Layer"
         B[MCP Server<br/>Node.js + TypeScript]
         C[MCP Tools]
         D[WebSocket Server]
     end
-    
+
     subgraph "Integration Layer"
         E[X4 REST Client<br/>HTTP/REST]
     end
-    
+
     subgraph "External Services"
         F[X4 REST Server<br/>Python]
         G[X4 Foundations<br/>Game + Extensions]
     end
-    
+
     subgraph "AI Services"
         H[LLM Provider<br/>Claude/GPT]
     end
-    
+
     A <-->|WebSocket| D
     A <-->|MCP Protocol| B
     H <-->|MCP Protocol| B
@@ -49,7 +50,7 @@ graph TB
     C <-->|REST API| E
     E <-->|HTTP| F
     F <-->|Game Extensions| G
-    
+
     style A fill:#e3f2fd
     style B fill:#fff3e0
     style F fill:#f3e5f5
@@ -66,6 +67,7 @@ graph TB
 **Purpose:** In-game user interface for AI interaction
 
 **Responsibilities:**
+
 - Render overlay UI in browser
 - Handle user input and commands
 - Display real-time game data
@@ -73,6 +75,7 @@ graph TB
 - WebSocket connection to MCP server
 
 **Key Files:** (To be created in Phase 3)
+
 - `packages/overlay/src/App.tsx`
 - `packages/overlay/src/components/`
 - `packages/overlay/src/hooks/`
@@ -85,6 +88,7 @@ graph TB
 **Purpose:** Bridge between AI and game data
 
 **Responsibilities:**
+
 - Implement MCP protocol
 - Define and handle tools
 - Connect to X4 REST API
@@ -92,6 +96,7 @@ graph TB
 - Cache and optimize data access
 
 **Key Files:** (To be created in Phase 2)
+
 - `packages/mcp-server/src/server.ts`
 - `packages/mcp-server/src/tools/`
 - `packages/mcp-server/src/client/`
@@ -105,6 +110,7 @@ graph TB
 **Purpose:** Expose X4 game data via REST API
 
 **Integration:**
+
 - Added as Git submodule in `vendor/x4-rest-server`
 - Runs independently as Python service
 - Accessed via HTTP REST API
@@ -123,7 +129,7 @@ sequenceDiagram
     participant MCP
     participant X4API
     participant Game
-    
+
     User->>Overlay: Ask question
     Overlay->>AI: Send query
     AI->>MCP: Request tool execution
@@ -141,8 +147,10 @@ sequenceDiagram
 ## Technology Decisions
 
 ### Monorepo Structure
+
 **Decision:** Use pnpm workspaces  
 **Rationale:**
+
 - Single repo for all packages
 - Shared dependencies
 - Consistent tooling
@@ -153,8 +161,10 @@ sequenceDiagram
 ---
 
 ### TypeScript
+
 **Decision:** Use TypeScript in strict mode  
 **Rationale:**
+
 - Type safety reduces bugs
 - Better IDE support
 - Self-documenting code
@@ -165,8 +175,10 @@ sequenceDiagram
 ---
 
 ### MCP Protocol
+
 **Decision:** Use Model Context Protocol  
 **Rationale:**
+
 - Standard for AI-tool communication
 - Supports multiple AI providers
 - Well-documented protocol
@@ -177,8 +189,10 @@ sequenceDiagram
 ---
 
 ### React for Overlay
+
 **Decision:** Use React with Vercel AI SDK  
 **Rationale:**
+
 - Large ecosystem
 - Vercel AI SDK integration
 - Component reusability
@@ -191,16 +205,19 @@ sequenceDiagram
 ## Security Considerations
 
 ### Authentication
+
 - X4 REST Server authentication (TBD)
 - MCP server access control (TBD)
 - Overlay origin validation (TBD)
 
 ### Data Protection
+
 - No sensitive data in logs
 - Environment variables for secrets
 - HTTPS for production
 
 ### Input Validation
+
 - Validate all external inputs
 - Sanitize user queries
 - Rate limiting on API calls
@@ -210,16 +227,19 @@ sequenceDiagram
 ## Performance Considerations
 
 ### Caching Strategy
+
 - Cache X4 REST responses
 - TTL-based invalidation
 - Memory-efficient storage
 
 ### Connection Management
+
 - WebSocket keep-alive
 - Connection pooling for REST
 - Graceful degradation
 
 ### Optimization Goals
+
 - Query latency < 500ms (p95)
 - Overlay render < 3s initial
 - Memory usage < 200MB
@@ -229,11 +249,13 @@ sequenceDiagram
 ## Deployment Architecture
 
 ### Development
+
 - Local X4 REST Server
 - Local MCP Server
 - Local Overlay (dev server)
 
 ### Production (Future)
+
 - Containerized services
 - Cloud deployment options
 - CDN for overlay assets
@@ -243,11 +265,13 @@ sequenceDiagram
 ## Future Enhancements
 
 ### Scalability
+
 - Multi-player support
 - Distributed caching
 - Load balancing
 
 ### Extensibility
+
 - Plugin system
 - Custom tool development
 - Theme customization

@@ -1,4 +1,5 @@
 # Setup Guide
+
 ## X4 Foundations AI Assistant
 
 **Version:** 1.0.0  
@@ -47,6 +48,7 @@ git submodule update --init --recursive
 This will clone the X4 REST Server into `vendor/x4-rest-server/`.
 
 **Verify Submodule:**
+
 ```bash
 # Check that the submodule directory is populated
 ls -la vendor/x4-rest-server/
@@ -62,6 +64,7 @@ pnpm install
 ```
 
 This will install dependencies for:
+
 - Root workspace
 - `packages/mcp-server/`
 - `packages/overlay/`
@@ -75,6 +78,7 @@ The X4 REST Server is required to access X4 game data. It runs as a separate Pyt
 ### Installation
 
 1. Navigate to the submodule directory:
+
    ```bash
    cd vendor/x4-rest-server
    ```
@@ -123,6 +127,7 @@ All checks should pass (once implemented in Phase 2+).
 ### 2. IDE Configuration (VS Code)
 
 Install recommended extensions:
+
 - ESLint
 - Prettier
 - TypeScript and JavaScript Language Features
@@ -182,6 +187,7 @@ git commit -m "Update X4 REST Server submodule"
 **Problem:** The `vendor/x4-rest-server/` directory exists but is empty.
 
 **Solution:**
+
 ```bash
 git submodule update --init --recursive
 ```
@@ -191,6 +197,7 @@ git submodule update --init --recursive
 **Problem:** Python server fails to start.
 
 **Solution:**
+
 1. Check Python version (3.8+ required)
 2. Install Python dependencies
 3. Verify X4 game extensions are installed
@@ -201,6 +208,7 @@ git submodule update --init --recursive
 **Problem:** `pnpm install` fails.
 
 **Solution:**
+
 1. Verify Node.js version: `node --version` (18+ required)
 2. Verify pnpm version: `pnpm --version` (8+ required)
 3. Clear pnpm cache: `pnpm store prune`
@@ -211,6 +219,7 @@ git submodule update --init --recursive
 **Problem:** TypeScript shows errors in IDE.
 
 **Solution:**
+
 1. Ensure TypeScript language service is running in VS Code
 2. Restart TypeScript server: Cmd/Ctrl + Shift + P → "Restart TS Server"
 3. Check `tsconfig.base.json` is present
@@ -221,18 +230,21 @@ git submodule update --init --recursive
 ## Next Steps
 
 ### Phase 1 (Current)
+
 - ✅ Repository cloned
 - ✅ Submodules initialized
 - ✅ Dependencies installed
 - ✅ X4 REST Server setup
 
 ### Phase 2 (MCP Server Development)
+
 - [ ] Implement MCP server
 - [ ] Create X4 REST client
 - [ ] Add MCP tools
 - [ ] Write tests
 
 ### Phase 3 (Overlay Development)
+
 - [ ] Create React overlay
 - [ ] Add WebSocket connection
 - [ ] Implement chat interface
@@ -243,18 +255,21 @@ git submodule update --init --recursive
 ## Getting Help
 
 ### Documentation
+
 - [PRD Document](./PRD.md) - Project overview and phases
 - [Agent Orchestration](../AGENTS.md) - Development workflow
 - [Architecture](./ARCHITECTURE.md) - System design
 - [API Reference](./API_REFERENCE.md) - API documentation
 
 ### External Resources
+
 - [X4 REST Server Docs](https://github.com/Alia5/X4-rest-server)
 - [MCP Specification](https://modelcontextprotocol.io/)
 - [pnpm Documentation](https://pnpm.io/)
 - [TypeScript Handbook](https://www.typescriptlang.org/docs/)
 
 ### Community
+
 - GitHub Issues: Report bugs or request features
 - GitHub Discussions: Ask questions or share ideas
 

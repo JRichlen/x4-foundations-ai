@@ -1,4 +1,5 @@
 # GitHub Copilot Instructions
+
 ## X4 Foundations AI Assistant Development
 
 This document provides guidance on leveraging GitHub Copilot Spaces and other AI-powered development tools for this project.
@@ -8,9 +9,11 @@ This document provides guidance on leveraging GitHub Copilot Spaces and other AI
 ## Available Spaces
 
 ### 1. X4 Foundations Space
+
 **Purpose:** Access X4 game-specific documentation and community knowledge
 
 **Use When:**
+
 - Implementing X4 REST API integrations
 - Understanding X4 game mechanics and data structures
 - Querying station, ship, or fleet information
@@ -18,12 +21,14 @@ This document provides guidance on leveraging GitHub Copilot Spaces and other AI
 - Need game-specific terminology or concepts
 
 **Example Queries:**
+
 - "What are the available X4 REST API endpoints for station management?"
 - "How does X4 handle faction relationships?"
 - "What data structure does X4 use for ship loadouts?"
 - "Explain X4 trade routes and commodity pricing"
 
 **Tips:**
+
 - Reference specific X4 game versions when relevant
 - Ask about both vanilla and modded gameplay scenarios
 - Verify API endpoint availability in X4 REST Server docs
@@ -31,9 +36,11 @@ This document provides guidance on leveraging GitHub Copilot Spaces and other AI
 ---
 
 ### 2. MCP/Agent Development Space
+
 **Purpose:** Access Model Context Protocol specifications and agent orchestration patterns
 
 **Use When:**
+
 - Implementing MCP server protocol handlers
 - Designing MCP tools and resources
 - Understanding agent communication patterns
@@ -41,6 +48,7 @@ This document provides guidance on leveraging GitHub Copilot Spaces and other AI
 - Implementing context management
 
 **Example Queries:**
+
 - "How do I implement an MCP tool with complex parameters?"
 - "What's the proper way to handle MCP protocol errors?"
 - "Best practices for MCP resource caching?"
@@ -48,6 +56,7 @@ This document provides guidance on leveraging GitHub Copilot Spaces and other AI
 - "Agent orchestration patterns for research and implementation"
 
 **Tips:**
+
 - Reference the MCP specification version (if specified)
 - Ask about real-world implementation examples
 - Consider error handling and edge cases early
@@ -56,9 +65,11 @@ This document provides guidance on leveraging GitHub Copilot Spaces and other AI
 ---
 
 ### 3. Vercel AI SDK Space
+
 **Purpose:** Access Vercel AI SDK documentation and integration patterns
 
 **Use When:**
+
 - Building the browser overlay UI
 - Integrating AI chat capabilities
 - Working with streaming responses
@@ -66,6 +77,7 @@ This document provides guidance on leveraging GitHub Copilot Spaces and other AI
 - Handling AI model selection and configuration
 
 **Example Queries:**
+
 - "How to implement streaming chat with Vercel AI SDK in React?"
 - "What's the best way to handle AI response errors?"
 - "How to integrate custom UI components with useChat hook?"
@@ -73,6 +85,7 @@ This document provides guidance on leveraging GitHub Copilot Spaces and other AI
 - "How to implement tool calling in Vercel AI SDK?"
 
 **Tips:**
+
 - Check compatibility with React version used in project
 - Consider streaming vs. non-streaming responses
 - Plan for error states and loading indicators
@@ -115,9 +128,11 @@ describe('StationInfo Tool', () => {
 
 ```markdown
 # Let Copilot help generate documentation
+
 ## API Reference
 
 ### getStationInfo
+
 <!-- Copilot can suggest parameter descriptions and examples -->
 ```
 
@@ -197,7 +212,7 @@ export const myTool: MCPTool = {
   },
   handler: async (params) => {
     // Implementation with error handling
-  }
+  },
 };
 ```
 
@@ -230,6 +245,7 @@ export function ChatInterface() {
 ### Copilot Not Providing Relevant Suggestions
 
 **Solutions:**
+
 1. Add more context in comments
 2. Open related files in workspace
 3. Use explicit Space queries
@@ -239,6 +255,7 @@ export function ChatInterface() {
 ### Space Queries Not Working
 
 **Solutions:**
+
 1. Verify Space access in GitHub settings
 2. Use correct Space name syntax
 3. Rephrase query for clarity
@@ -248,6 +265,7 @@ export function ChatInterface() {
 ### Generated Code Doesn't Match Project Style
 
 **Solutions:**
+
 1. Reference existing similar code
 2. Use `.editorconfig` and Prettier
 3. Provide style examples in comments
@@ -261,12 +279,14 @@ export function ChatInterface() {
 ### Implementing a New MCP Tool
 
 1. **Research** (Use X4 and MCP Spaces)
+
    ```
    @space X4 Foundations - "X4 REST API for faction information"
    @space MCP/Agent - "MCP tool schema for complex parameters"
    ```
 
 2. **Design** (Let Copilot help with types)
+
    ```typescript
    // Define tool interface
    interface FactionInfoParams {
@@ -275,6 +295,7 @@ export function ChatInterface() {
    ```
 
 3. **Implement** (Use inline completions)
+
    ```typescript
    export const factionInfoTool = {
      // Copilot generates based on patterns
@@ -291,11 +312,13 @@ export function ChatInterface() {
 ### Building Overlay Component
 
 1. **Research** (Use Vercel AI SDK Space)
+
    ```
    @space Vercel AI SDK - "React component with streaming chat"
    ```
 
 2. **Component Structure**
+
    ```typescript
    // Copilot suggests based on SDK patterns
    export function GameOverlay() {

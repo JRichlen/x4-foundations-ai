@@ -15,18 +15,21 @@ agent-skills-research/
 ## Research Process
 
 ### Phase 1: Source Filtering
+
 Quick pass through all sources to identify viable ones.
 
 **Status:** Not Started  
 **Output:** `00-source-filter.md`
 
 ### Phase 2: Detailed Research
+
 Deep dive into each viable source, evaluating individual skills.
 
 **Status:** Not Started  
 **Output:** One `[source-name].md` file per researched source
 
 ### Phase 3: Synthesis
+
 Compile findings, identify overlaps, create prioritized recommendations.
 
 **Status:** Not Started  
@@ -49,6 +52,7 @@ Each skill is evaluated using a 4-question framework:
 4. **Cheap + low-risk?** → YES/NO (if Q3=NO)
 
 Results in 5 categories:
+
 - ✅ **MUST HAVE** - Critical for core functionality
 - 🟩 **NEED TO HAVE** - Important but not critical
 - 🟨 **SHOULD HAVE** - Valuable quality improvements

@@ -1,4 +1,5 @@
 # API Reference
+
 ## X4 Foundations AI Assistant
 
 **Version:** 1.0.0  
@@ -22,11 +23,13 @@ The MCP Server will implement the Model Context Protocol to provide AI-accessibl
 #### Planned Tools
 
 ##### `get_player_info`
+
 Get information about the player character.
 
 **Parameters:** None
 
 **Returns:**
+
 ```typescript
 {
   name: string;
@@ -41,9 +44,11 @@ Get information about the player character.
 ---
 
 ##### `list_stations`
+
 List all stations in the game.
 
 **Parameters:**
+
 ```typescript
 {
   sector?: string;  // Optional sector filter
@@ -52,6 +57,7 @@ List all stations in the game.
 ```
 
 **Returns:**
+
 ```typescript
 {
   stations: Array<{
@@ -69,9 +75,11 @@ List all stations in the game.
 ---
 
 ##### `get_station_details`
+
 Get detailed information about a specific station.
 
 **Parameters:**
+
 ```typescript
 {
   stationId: string;
@@ -79,6 +87,7 @@ Get detailed information about a specific station.
 ```
 
 **Returns:**
+
 ```typescript
 {
   id: string;
@@ -98,9 +107,11 @@ Get detailed information about a specific station.
 ---
 
 ##### `list_ships`
+
 List ships owned by the player.
 
 **Parameters:**
+
 ```typescript
 {
   type?: string;     // Optional ship type filter
@@ -109,6 +120,7 @@ List ships owned by the player.
 ```
 
 **Returns:**
+
 ```typescript
 {
   ships: Array<{
@@ -126,9 +138,11 @@ List ships owned by the player.
 ---
 
 ##### `get_ship_details`
+
 Get detailed information about a specific ship.
 
 **Parameters:**
+
 ```typescript
 {
   shipId: string;
@@ -136,6 +150,7 @@ Get detailed information about a specific ship.
 ```
 
 **Returns:**
+
 ```typescript
 {
   id: string;
@@ -162,9 +177,11 @@ TypeScript client for communicating with X4 REST Server.
 #### Planned Methods
 
 ##### `connect()`
+
 Establish connection to X4 REST Server.
 
 **Parameters:**
+
 ```typescript
 {
   baseUrl: string;
@@ -179,9 +196,11 @@ Establish connection to X4 REST Server.
 ---
 
 ##### `request()`
+
 Make a REST API request.
 
 **Parameters:**
+
 ```typescript
 {
   endpoint: string;
@@ -205,9 +224,11 @@ React components for the browser overlay.
 #### Planned Components
 
 ##### `<ChatInterface />`
+
 Main chat interface component.
 
 **Props:**
+
 ```typescript
 {
   onMessage: (message: string) => void;
@@ -221,9 +242,11 @@ Main chat interface component.
 ---
 
 ##### `<DataDisplay />`
+
 Component for displaying game data.
 
 **Props:**
+
 ```typescript
 {
   data: Record<string, unknown>;
@@ -244,9 +267,11 @@ WebSocket events for overlay communication.
 #### Client → Server
 
 ##### `chat_message`
+
 Send a chat message.
 
 **Payload:**
+
 ```typescript
 {
   message: string;
@@ -257,9 +282,11 @@ Send a chat message.
 ---
 
 ##### `subscribe_updates`
+
 Subscribe to real-time updates.
 
 **Payload:**
+
 ```typescript
 {
   type: 'station' | 'ship' | 'player';
@@ -272,9 +299,11 @@ Subscribe to real-time updates.
 #### Server → Client
 
 ##### `chat_response`
+
 Receive AI response.
 
 **Payload:**
+
 ```typescript
 {
   message: string;
@@ -288,9 +317,11 @@ Receive AI response.
 ---
 
 ##### `data_update`
+
 Receive data update.
 
 **Payload:**
+
 ```typescript
 {
   type: string;
@@ -329,10 +360,12 @@ interface APIError {
 ## Rate Limiting
 
 ### MCP Server
+
 - Default: 100 requests/minute per client
 - Burst: 10 requests/second
 
 ### X4 REST API
+
 - Follows X4 REST Server limits
 - Implements exponential backoff
 
@@ -345,6 +378,7 @@ interface APIError {
 Authentication mechanism to be defined based on X4 REST Server capabilities.
 
 Possible approaches:
+
 - API key authentication
 - Session tokens
 - OAuth (if supported)

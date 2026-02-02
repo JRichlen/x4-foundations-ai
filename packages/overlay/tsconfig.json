@@ -4,8 +4,9 @@
     "outDir": "./dist",
     "noEmit": false,
     "composite": true,
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
     "allowImportingTsExtensions": false
   },
-  "include": ["src/**/*"],
+  "include": ["src/**/*", "vite.config.ts"],
   "exclude": ["node_modules", "dist"]
 }

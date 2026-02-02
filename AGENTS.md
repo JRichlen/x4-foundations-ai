@@ -1,4 +1,5 @@
 # Agent Orchestration Plan
+
 ## X4 Foundations AI Assistant Development
 
 **Version:** 1.0.0  
@@ -15,9 +16,11 @@ This document defines the agent orchestration strategy for developing the X4 Fou
 ## 1. Agent Personas
 
 ### 1.1 Research Agent
+
 **Primary Goal:** Gather comprehensive context and information to inform design and implementation decisions.
 
 **Capabilities:**
+
 - Query external documentation sources
 - Analyze existing codebases and APIs
 - Research best practices and patterns
@@ -25,6 +28,7 @@ This document defines the agent orchestration strategy for developing the X4 Fou
 - Identify dependencies and requirements
 
 **Tools:**
+
 - Web search and documentation access
 - GitHub repository exploration
 - API documentation parsers
@@ -34,6 +38,7 @@ This document defines the agent orchestration strategy for developing the X4 Fou
 **Output:** Context package with gathered information, source references, and recommendations
 
 **Quality Criteria:**
+
 - Information is accurate and from authoritative sources
 - Context is comprehensive yet focused on task needs
 - Sources are documented for verification
@@ -42,9 +47,11 @@ This document defines the agent orchestration strategy for developing the X4 Fou
 ---
 
 ### 1.2 Architect Agent
+
 **Primary Goal:** Design robust, scalable solutions that align with project architecture and best practices.
 
 **Capabilities:**
+
 - System design and component architecture
 - Interface and contract definition
 - Data flow and state management planning
@@ -52,6 +59,7 @@ This document defines the agent orchestration strategy for developing the X4 Fou
 - Performance and security design considerations
 
 **Tools:**
+
 - Architecture diagramming (Mermaid)
 - Design pattern libraries
 - Code structure planning
@@ -61,6 +69,7 @@ This document defines the agent orchestration strategy for developing the X4 Fou
 **Output:** Technical specification with architecture diagrams, component designs, and implementation guidance
 
 **Quality Criteria:**
+
 - Design aligns with project architecture
 - Interfaces are well-defined and typed
 - Performance implications considered
@@ -70,9 +79,11 @@ This document defines the agent orchestration strategy for developing the X4 Fou
 ---
 
 ### 1.3 Implementation Agent
+
 **Primary Goal:** Write clean, tested, production-ready code that implements the designed solution.
 
 **Capabilities:**
+
 - Write TypeScript/JavaScript code
 - Create React components
 - Implement MCP tools and handlers
@@ -80,6 +91,7 @@ This document defines the agent orchestration strategy for developing the X4 Fou
 - Handle error cases and edge conditions
 
 **Tools:**
+
 - Code editors and IDEs
 - Testing frameworks (Vitest)
 - Linters and formatters
@@ -89,6 +101,7 @@ This document defines the agent orchestration strategy for developing the X4 Fou
 **Output:** Production code with tests, following project standards
 
 **Quality Criteria:**
+
 - Code passes all linting checks
 - TypeScript strict mode compliance
 - Test coverage meets requirements (80%+)
@@ -98,9 +111,11 @@ This document defines the agent orchestration strategy for developing the X4 Fou
 ---
 
 ### 1.4 Validation Agent
+
 **Primary Goal:** Ensure all code meets quality standards and acceptance criteria before integration.
 
 **Capabilities:**
+
 - Execute test suites
 - Run static analysis tools
 - Perform integration testing
@@ -108,6 +123,7 @@ This document defines the agent orchestration strategy for developing the X4 Fou
 - Performance benchmarking
 
 **Tools:**
+
 - Test runners (Vitest, Jest)
 - Linters (ESLint)
 - Type checkers (TypeScript)
@@ -118,6 +134,7 @@ This document defines the agent orchestration strategy for developing the X4 Fou
 **Output:** Validation report with pass/fail status and any issues found
 
 **Quality Criteria:**
+
 - All tests pass
 - No linting or type errors
 - No security vulnerabilities
@@ -127,9 +144,11 @@ This document defines the agent orchestration strategy for developing the X4 Fou
 ---
 
 ### 1.5 Documentation Agent
+
 **Primary Goal:** Maintain comprehensive, up-to-date documentation for all project aspects.
 
 **Capabilities:**
+
 - Write and update API documentation
 - Maintain architecture documentation
 - Create user guides and tutorials
@@ -137,6 +156,7 @@ This document defines the agent orchestration strategy for developing the X4 Fou
 - Document breaking changes
 
 **Tools:**
+
 - Markdown editors
 - Documentation generators (TypeDoc)
 - Diagram tools (Mermaid)
@@ -146,6 +166,7 @@ This document defines the agent orchestration strategy for developing the X4 Fou
 **Output:** Updated documentation in appropriate locations
 
 **Quality Criteria:**
+
 - Documentation is accurate and complete
 - Examples are working and tested
 - Diagrams are up-to-date
@@ -161,48 +182,48 @@ This document defines the agent orchestration strategy for developing the X4 Fou
 ```mermaid
 flowchart TD
     Start([New Development Task]) --> Intake
-    
+
     Intake[Task Intake<br/>Parse Requirements] --> Research
-    
+
     Research[🔍 Research Agent<br/>Gather Context] --> ResearchReview{Context<br/>Sufficient?}
-    
+
     ResearchReview -->|No - Missing Info| Research
     ResearchReview -->|Yes| Architect
-    
+
     Architect[📐 Architect Agent<br/>Design Solution] --> ArchReview{Design<br/>Approved?}
-    
+
     ArchReview -->|No - Needs Revision| Architect
     ArchReview -->|Blocked - Need More Context| Research
     ArchReview -->|Yes| Implement
-    
+
     Implement[💻 Implementation Agent<br/>Write Code + Tests] --> ImplReview{Code<br/>Complete?}
-    
+
     ImplReview -->|No - Continue| Implement
     ImplReview -->|Blocked - Design Issue| Architect
     ImplReview -->|Yes| Validate
-    
+
     Validate[✅ Validation Agent<br/>Run All Tests] --> ValidReview{All Checks<br/>Pass?}
-    
+
     ValidReview -->|No - Tests Fail| Implement
     ValidReview -->|No - Design Flaw| Architect
     ValidReview -->|Yes| Document
-    
+
     Document[📝 Documentation Agent<br/>Update Docs] --> DocReview{Docs<br/>Complete?}
-    
+
     DocReview -->|No - Incomplete| Document
     DocReview -->|Yes| Checkpoint
-    
+
     Checkpoint[🎯 Phase Checkpoints] --> CP1[Validation<br/>Checkpoint]
     CP1 --> CP2[Alignment<br/>Checkpoint]
     CP2 --> CP3[Documentation<br/>Checkpoint]
-    
+
     CP3 --> FinalReview{All<br/>Checkpoints<br/>Pass?}
-    
+
     FinalReview -->|No - Issues Found| Research
     FinalReview -->|Yes| Done
-    
+
     Done([✓ Task Complete<br/>Ready for Integration])
-    
+
     style Research fill:#e1f5ff
     style Architect fill:#fff4e1
     style Implement fill:#e8f5e1
@@ -215,20 +236,24 @@ flowchart TD
 ### 2.2 Workflow Stages
 
 #### Stage 1: Research & Context Gathering
+
 **Agent:** Research Agent  
 **Objectives:**
+
 - Understand task requirements completely
 - Gather all necessary technical context
 - Identify dependencies and constraints
 - Research best practices and patterns
 
 **Deliverables:**
+
 - Context package document
 - Reference links and citations
 - Technical constraints list
 - Recommended approaches
 
 **Exit Criteria:**
+
 - All knowledge gaps filled
 - Sources documented
 - Architect has sufficient information to design
@@ -236,20 +261,24 @@ flowchart TD
 ---
 
 #### Stage 2: Architecture & Design
+
 **Agent:** Architect Agent  
 **Objectives:**
+
 - Design component structure
 - Define interfaces and contracts
 - Plan data flows
 - Consider performance and security
 
 **Deliverables:**
+
 - Technical specification document
 - Architecture diagrams (Mermaid)
 - Interface definitions (TypeScript)
 - Implementation guidance
 
 **Exit Criteria:**
+
 - Design reviewed and approved
 - All components defined
 - Dependencies identified
@@ -258,20 +287,24 @@ flowchart TD
 ---
 
 #### Stage 3: Implementation
+
 **Agent:** Implementation Agent  
 **Objectives:**
+
 - Write production code
 - Create comprehensive tests
 - Handle error cases
 - Follow project standards
 
 **Deliverables:**
+
 - Production code
 - Unit tests
 - Integration tests
 - Inline documentation
 
 **Exit Criteria:**
+
 - Code compiles without errors
 - All tests written
 - Error handling complete
@@ -280,20 +313,24 @@ flowchart TD
 ---
 
 #### Stage 4: Validation
+
 **Agent:** Validation Agent  
 **Objectives:**
+
 - Run all automated tests
 - Verify acceptance criteria
 - Check for security issues
 - Validate performance
 
 **Deliverables:**
+
 - Test execution report
 - Code coverage report
 - Security scan results
 - Performance benchmarks
 
 **Exit Criteria:**
+
 - All tests pass
 - Coverage meets threshold (80%+)
 - No security vulnerabilities
@@ -302,20 +339,24 @@ flowchart TD
 ---
 
 #### Stage 5: Documentation
+
 **Agent:** Documentation Agent  
 **Objectives:**
+
 - Update API reference
 - Refresh architecture docs
 - Document new features
 - Update PRD if needed
 
 **Deliverables:**
+
 - Updated documentation files
 - API reference updates
 - User guide additions
 - Architecture diagram updates
 
 **Exit Criteria:**
+
 - All documentation current
 - Examples tested and working
 - Breaking changes documented
@@ -324,19 +365,23 @@ flowchart TD
 ---
 
 #### Stage 6: Phase Checkpoints
+
 **All Agents:** Collaborative review  
 **Objectives:**
+
 - Validate against acceptance criteria
 - Ensure alignment with PRD
 - Confirm documentation completeness
 - Verify readiness for integration
 
 **Checkpoints:**
+
 1. **Validation Checkpoint:** All tests pass, no errors
 2. **Alignment Checkpoint:** Meets PRD objectives, stakeholder approval
 3. **Documentation Checkpoint:** Docs complete and accurate
 
 **Exit Criteria:**
+
 - All three checkpoints passed
 - No blockers or issues
 - Ready for merge
@@ -356,7 +401,7 @@ flowchart LR
     E --> F{Complete?}
     F -->|No| A
     F -->|Yes| G[Package<br/>Context]
-    
+
     style A fill:#e1f5ff
     style G fill:#90EE90
 ```
@@ -364,27 +409,32 @@ flowchart LR
 ### 3.2 Research Sources by Domain
 
 #### X4 Foundations Game Data
+
 - **Primary:** X4 Foundations Wiki
 - **Secondary:** Community forums, Reddit r/X4Foundations
 - **Code:** X4 REST Server repository
 - **API:** X4 REST Server API documentation
 
 #### MCP Protocol
+
 - **Primary:** MCP specification documentation
 - **Secondary:** Anthropic's MCP examples
 - **Code:** Reference implementations
 
 #### TypeScript/React Development
+
 - **Primary:** Official TypeScript and React docs
 - **Secondary:** Best practice guides
 - **Code:** High-quality open source examples
 
 #### Vercel AI SDK
+
 - **Primary:** Vercel AI SDK documentation
 - **Secondary:** Example applications
 - **Code:** SDK source code and examples
 
 #### Security & Performance
+
 - **Primary:** OWASP guidelines
 - **Secondary:** Node.js security best practices
 - **Code:** Security linting rules
@@ -397,26 +447,32 @@ Each research output should include:
 # Context Package: [Topic]
 
 ## Summary
+
 [Brief overview of findings]
 
 ## Key Information
+
 - Point 1
 - Point 2
 - ...
 
 ## Technical Constraints
+
 - Constraint 1
 - Constraint 2
 
 ## Recommendations
+
 - Recommendation 1
 - Recommendation 2
 
 ## Sources
+
 - [Source 1 with URL]
 - [Source 2 with URL]
 
 ## Open Questions
+
 - Question 1
 - Question 2
 ```
@@ -431,6 +487,7 @@ Each research output should include:
 **Scope:** Technical quality and correctness
 
 **Checklist:**
+
 - [ ] All automated tests pass (unit, integration, e2e)
 - [ ] Code coverage meets threshold (80%+)
 - [ ] Linting passes with zero errors
@@ -450,6 +507,7 @@ Each research output should include:
 **Scope:** Requirements and PRD alignment
 
 **Checklist:**
+
 - [ ] Acceptance criteria from PRD met
 - [ ] Feature matches specification
 - [ ] No scope creep or unplanned features
@@ -469,6 +527,7 @@ Each research output should include:
 **Scope:** Documentation completeness and accuracy
 
 **Checklist:**
+
 - [ ] API reference updated for new/changed APIs
 - [ ] Architecture diagrams reflect current state
 - [ ] User-facing documentation updated
@@ -488,6 +547,7 @@ Each research output should include:
 ### 5.1 Quality Gates
 
 **Code Quality:**
+
 - TypeScript strict mode: Required
 - ESLint errors: Must be zero
 - Code coverage: Minimum 80%
@@ -495,12 +555,14 @@ Each research output should include:
 - File size: Max 500 lines (with exceptions)
 
 **Testing:**
+
 - Unit tests: All public functions
 - Integration tests: All major workflows
 - Error cases: All error paths tested
 - Edge cases: Known edge cases covered
 
 **Security:**
+
 - No hardcoded secrets
 - Input validation on all external data
 - No critical/high vulnerabilities
@@ -508,6 +570,7 @@ Each research output should include:
 - Security headers configured
 
 **Performance:**
+
 - Bundle size: Monitor and limit growth
 - Load time: < 3 seconds initial load
 - Query latency: < 500ms (p95)
@@ -516,18 +579,21 @@ Each research output should include:
 ### 5.2 Communication Protocols
 
 **Agent Handoffs:**
+
 - Clear context package format
 - Explicit deliverables defined
 - Dependencies documented
 - Blockers escalated immediately
 
 **Feedback Loops:**
+
 - Regular check-ins at stage boundaries
 - Design reviews before implementation
 - Code reviews before validation
 - Documentation reviews before completion
 
 **Escalation Path:**
+
 1. **Agent-level:** Agent identifies blocker, passes to previous agent
 2. **Stage-level:** Issue requires re-design or re-research
 3. **Phase-level:** Fundamental issue requires PRD review
@@ -536,24 +602,28 @@ Each research output should include:
 ### 5.3 Risk Management
 
 **Dependency Risks:**
+
 - Pin all production dependencies
 - Audit dependencies weekly
 - Monitor upstream changes
 - Have rollback plan
 
 **Breaking Changes:**
+
 - Document all breaking changes
 - Provide migration guides
 - Version bumps follow semver
 - Deprecation notices with timeline
 
 **Performance Regression:**
+
 - Benchmark before/after changes
 - Profile critical paths
 - Load testing for major features
 - Rollback if regression > 10%
 
 **Security Vulnerabilities:**
+
 - Immediate patching for critical issues
 - Security review for sensitive code
 - Regular dependency updates
@@ -562,24 +632,28 @@ Each research output should include:
 ### 5.4 Development Standards
 
 **Code Style:**
+
 - Follow project ESLint/Prettier config
 - Consistent naming conventions
 - Meaningful variable names
 - Comments for complex logic only
 
 **Git Workflow:**
+
 - Feature branches from main
 - Descriptive commit messages
 - Small, focused commits
 - Rebase before merge (if appropriate)
 
 **Testing Standards:**
+
 - AAA pattern (Arrange, Act, Assert)
 - Descriptive test names
 - One assertion per test (generally)
 - Mock external dependencies
 
 **Documentation Standards:**
+
 - API docs for all public APIs
 - README for each package
 - Architecture decisions recorded (ADRs if needed)
@@ -594,16 +668,19 @@ Each research output should include:
 Each completed task should include a brief retrospective:
 
 **What Worked Well:**
+
 - Effective agent handoffs
 - Clear specifications
 - Good test coverage
 
 **What Could Improve:**
+
 - Missing context early on
 - Design iteration needed
 - Documentation gaps
 
 **Action Items:**
+
 - Update agent prompts
 - Enhance context gathering
 - Improve templates
@@ -611,6 +688,7 @@ Each completed task should include a brief retrospective:
 ### 6.2 PRD Updates
 
 The PRD should be updated after each phase with:
+
 - Actual vs. planned timelines
 - Lessons learned
 - Architectural changes
@@ -626,16 +704,19 @@ The PRD should be updated after each phase with:
 Agents have access to specialized Spaces for context gathering:
 
 **X4 Foundations Space:**
+
 - Game mechanics documentation
 - API references
 - Community best practices
 
 **MCP/Agent Development Space:**
+
 - MCP protocol specifications
 - Agent orchestration patterns
 - Tool implementation examples
 
 **Vercel AI SDK Space:**
+
 - AI SDK documentation
 - Integration patterns
 - React/UI components
@@ -645,12 +726,14 @@ Agents have access to specialized Spaces for context gathering:
 ### 7.2 Development Tools
 
 **Required:**
+
 - Node.js 18+
 - pnpm 8+
 - TypeScript 5+
 - Git
 
 **Recommended:**
+
 - VS Code with extensions (ESLint, Prettier, TypeScript)
 - GitHub Copilot
 - Browser DevTools
@@ -713,6 +796,7 @@ Agents have access to specialized Spaces for context gathering:
 ## 10. Document Maintenance
 
 This document should be:
+
 - Reviewed after each major phase
 - Updated with process improvements
 - Kept in sync with PRD
@@ -725,6 +809,7 @@ This document should be:
 ## 11. Quick Reference
 
 ### Agent Summary
+
 - 🔍 **Research:** Gather context and information
 - 📐 **Architect:** Design solutions and architecture
 - 💻 **Implementation:** Write code and tests
@@ -732,11 +817,13 @@ This document should be:
 - 📝 **Documentation:** Maintain docs and guides
 
 ### Checkpoint Summary
+
 1. **Validation:** Tests pass, no errors
 2. **Alignment:** Meets requirements, stakeholder approval
 3. **Documentation:** Docs complete and accurate
 
 ### Quick Wins
+
 - Start with Research Agent for new features
 - Use Architect Agent for complex designs
 - Implementation Agent follows specs strictly

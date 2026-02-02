@@ -1,6 +1,6 @@
 /**
  * MCP Server for X4 Foundations AI Assistant
- * 
+ *
  * This server implements the Model Context Protocol to provide AI-accessible
  * tools for X4 game data via the X4 REST Server.
  */
@@ -15,6 +15,10 @@ import { config } from 'dotenv';
 
 // Load environment variables
 config();
+
+interface EchoArgs {
+  message?: string;
+}
 
 /**
  * MCP Server Implementation
@@ -41,7 +45,7 @@ class X4MCPServer {
 
   private setupHandlers(): void {
     // List available tools
-    this.server.setRequestHandler(ListToolsRequestSchema, async () => {
+    this.server.setRequestHandler(ListToolsRequestSchema, () => {
       return {
         tools: [
           {
@@ -63,19 +67,22 @@ class X4MCPServer {
     });
 
     // Handle tool calls
-    this.server.setRequestHandler(CallToolRequestSchema, async (request) => {
+    this.server.setRequestHandler(CallToolRequestSchema, (request) => {
       const { name, arguments: args } = request.params;
 
       switch (name) {
-        case 'echo':
+        case 'echo': {
+          const echoArgs = args as EchoArgs;
+          const message = echoArgs?.message ?? 'No message provided';
           return {
             content: [
               {
                 type: 'text',
-                text: `Echo: ${args?.message || 'No message provided'}`,
+                text: `Echo: ${message}`,
               },
             ],
           };
+        }
 
         default:
           throw new Error(`Unknown tool: ${name}`);

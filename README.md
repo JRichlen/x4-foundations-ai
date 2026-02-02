@@ -75,6 +75,7 @@ Contributions are welcome! Please read our contributing guidelines (coming soon)
 ### Development Workflow
 
 This project follows an agent orchestration model for development. See [AGENTS.md](AGENTS.md) for details on:
+
 - Research and planning phases
 - Implementation workflow
 - Quality checkpoints
@@ -82,13 +83,13 @@ This project follows an agent orchestration model for development. See [AGENTS.m
 
 ## 📊 Development Phases
 
-| Phase | Status | Description |
-|-------|--------|-------------|
+| Phase               | Status         | Description                            |
+| ------------------- | -------------- | -------------------------------------- |
 | Phase 1: Foundation | 🟡 In Progress | Monorepo scaffolding and documentation |
-| Phase 2: MCP Server | ⚪ Not Started | Core MCP server implementation |
-| Phase 3: Overlay | ⚪ Not Started | Browser overlay UI |
-| Phase 4: Advanced | ⚪ Not Started | Advanced features and automation |
-| Phase 5: Release | ⚪ Not Started | Polish and public release |
+| Phase 2: MCP Server | ⚪ Not Started | Core MCP server implementation         |
+| Phase 3: Overlay    | ⚪ Not Started | Browser overlay UI                     |
+| Phase 4: Advanced   | ⚪ Not Started | Advanced features and automation       |
+| Phase 5: Release    | ⚪ Not Started | Polish and public release              |
 
 ## 🔗 Related Projects
 

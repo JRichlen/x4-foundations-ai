@@ -9,6 +9,7 @@
 ## Filtering Criteria
 
 A source will be **filtered out** if:
+
 - Repository is empty or archived
 - Contains only documentation/guides (no actual skills/tools)
 - Language-specific and incompatible (e.g., Python-only when we need TypeScript/JavaScript)
@@ -16,6 +17,7 @@ A source will be **filtered out** if:
 - Access is restricted or repository doesn't exist
 
 A source is **viable** if:
+
 - Contains actual skills, tools, or MCP servers
 - Skills are language-agnostic or compatible with TypeScript/JavaScript
 - Repository is active and maintained
@@ -25,19 +27,19 @@ A source is **viable** if:
 
 ## Quick Pass Results
 
-*This section will be filled during Phase 1 research*
+_This section will be filled during Phase 1 research_
 
 ### Viable Sources (Move to Phase 2)
 
-| # | Repository | Reason | Skills Preview |
-|---|------------|--------|----------------|
-| - | - | - | - |
+| #   | Repository | Reason | Skills Preview |
+| --- | ---------- | ------ | -------------- |
+| -   | -          | -      | -              |
 
 ### Filtered Out Sources
 
-| # | Repository | Reason for Filtering |
-|---|------------|---------------------|
-| - | - | - |
+| #   | Repository | Reason for Filtering |
+| --- | ---------- | -------------------- |
+| -   | -          | -                    |
 
 ---
 

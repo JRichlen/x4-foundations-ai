@@ -10,15 +10,18 @@
 ## 1. Overview
 
 ### 1.1 Purpose
+
 Research and evaluate agent skills from community sources to identify capabilities that can enhance the X4 Foundations AI Assistant's functionality, particularly for MCP tool development and AI-driven automation.
 
 ### 1.2 Goals
+
 - Identify high-value skills from 30+ community repositories
 - Categorize skills using a priority framework (MUST/NEED/SHOULD/COULD/DROP)
 - Create a curated list of skills for integration into the project
 - Document findings for future reference and iterations
 
 ### 1.3 Success Criteria
+
 - All 30+ sources researched and documented
 - Skills categorized using the 4-question framework
 - Final prioritized list ready for implementation
@@ -73,6 +76,7 @@ The following 30+ GitHub repositories will be researched:
 Each skill will be evaluated using a 4-question framework to assign to one of 5 categories:
 
 #### Q1: Primary workflow support?
+
 - Primary workflow = core functionality the X4 AI Assistant must deliver
 - For X4 Assistant: game data queries, automation, real-time monitoring
 
@@ -80,6 +84,7 @@ Each skill will be evaluated using a 4-question framework to assign to one of 5 
 **NO** → Go to Q3
 
 #### Q2: Missing it causes hard failure or safety/compliance risk?
+
 - Hard failure = can't complete task, wrong output, breaks system
 - Safety/compliance = auth, privacy/PII, security, policy
 
@@ -87,12 +92,14 @@ Each skill will be evaluated using a 4-question framework to assign to one of 5 
 **NO** → **NEED TO HAVE** 🟩
 
 #### Q3: Meaningfully improves success/quality for common cases?
+
 - Common = shows up often enough users would notice
 
 **YES** → **SHOULD HAVE** 🟨  
 **NO** → Go to Q4
 
 #### Q4: Cheap and low-risk to add?
+
 - Cheap = small effort, minimal dependencies
 - Low-risk = unlikely to break other stuff, no attack surface
 
@@ -102,7 +109,9 @@ Each skill will be evaluated using a 4-question framework to assign to one of 5 
 ### 2.3 Category Definitions
 
 #### ✅ MUST HAVE
+
 **When:**
+
 - Supports primary workflow
 - AND missing causes hard failure or safety/compliance risk
 
@@ -111,7 +120,9 @@ Each skill will be evaluated using a 4-question framework to assign to one of 5 
 **Impact on X4 Assistant:** Core MCP tools, X4 REST API client, error handling, authentication
 
 #### 🟩 NEED TO HAVE
+
 **When:**
+
 - Supports primary workflow
 - BUT missing doesn't fully break things—just unreliable, slow, or painful
 
@@ -120,7 +131,9 @@ Each skill will be evaluated using a 4-question framework to assign to one of 5 
 **Impact on X4 Assistant:** Response caching, retry logic, query optimization, connection pooling
 
 #### 🟨 SHOULD HAVE
+
 **When:**
+
 - Not required for primary workflow
 - But improves results for common tasks (noticeable UX/quality uplift)
 
@@ -129,7 +142,9 @@ Each skill will be evaluated using a 4-question framework to assign to one of 5 
 **Impact on X4 Assistant:** Enhanced data visualization, natural language improvements, user preferences
 
 #### 🟦 COULD HAVE
+
 **When:**
+
 - Not common, not critical
 - But cheap + safe (nice-to-have polish)
 
@@ -138,7 +153,9 @@ Each skill will be evaluated using a 4-question framework to assign to one of 5 
 **Impact on X4 Assistant:** Third-party integrations, experimental features, edge case handlers
 
 #### 🚫 DROP (for now)
+
 **When:**
+
 - Not primary, not common
 - AND not cheap/safe (high complexity or maintenance)
 
@@ -149,9 +166,11 @@ Each skill will be evaluated using a 4-question framework to assign to one of 5 
 ## 3. Research Process
 
 ### 3.1 Phase 1: Source Filtering (Quick Pass)
+
 **Objective:** Eliminate sources with no relevant skills
 
 **Process:**
+
 1. Visit each GitHub repository
 2. Check README and repository structure
 3. Identify if it contains actual skills/tools vs. documentation
@@ -166,9 +185,11 @@ Each skill will be evaluated using a 4-question framework to assign to one of 5 
 **Estimated Time:** 1-2 hours
 
 ### 3.2 Phase 2: Detailed Research Per Source
+
 **Objective:** Deep dive into each viable source
 
 **Process for each source:**
+
 1. Clone or browse repository
 2. Identify all available skills/tools
 3. For each skill, answer the 4 prioritization questions
@@ -180,9 +201,11 @@ Each skill will be evaluated using a 4-question framework to assign to one of 5 
 **Estimated Time:** 30-60 minutes per source
 
 ### 3.3 Phase 3: Synthesis and Ranking
+
 **Objective:** Aggregate findings and create final recommendations
 
 **Process:**
+
 1. Compile all skills across sources
 2. Identify overlaps and duplicates
 3. Apply final priority ranking
@@ -206,27 +229,33 @@ For each skill discovered, document:
 **Language:** [TypeScript / Python / etc.]
 
 ### Description
+
 [Brief description of what the skill does]
 
 ### Evaluation
 
 **Q1: Primary workflow support?**
+
 - [ ] YES - Supports core X4 Assistant functionality
 - [ ] NO - Not part of primary workflows
 
 **Q2: Hard failure or safety risk if missing?**
+
 - [ ] YES - Critical for system operation or safety
 - [ ] NO - System can operate without it
 
 **Q3: Meaningful improvement for common cases?**
+
 - [ ] YES - Users will notice the quality/UX improvement
 - [ ] NO - Edge case or rare scenario
 
 **Q4: Cheap + low-risk?**
+
 - [ ] YES - Low effort, minimal dependencies, safe
 - [ ] NO - High complexity, many dependencies, or risky
 
 ### Category
+
 - [ ] ✅ MUST HAVE
 - [ ] 🟩 NEED TO HAVE
 - [ ] 🟨 SHOULD HAVE
@@ -234,12 +263,15 @@ For each skill discovered, document:
 - [ ] 🚫 DROP (for now)
 
 ### Reason
+
 [One-sentence justification for the category]
 
 ### Integration Notes
+
 [Technical notes on how to integrate, dependencies, compatibility]
 
 ### Estimated Effort
+
 - [ ] Small (< 1 day)
 - [ ] Medium (1-3 days)
 - [ ] Large (> 3 days)
@@ -252,6 +284,7 @@ For each skill discovered, document:
 ## 4. X4 Assistant Context
 
 ### 4.1 Primary Workflows
+
 To properly evaluate skills, keep these core X4 Assistant workflows in mind:
 
 1. **Game Data Queries**
@@ -284,13 +317,15 @@ To properly evaluate skills, keep these core X4 Assistant workflows in mind:
 **Language:** TypeScript/JavaScript (Node.js)  
 **Protocol:** Model Context Protocol (MCP)  
 **Architecture:** Monorepo with pnpm workspaces  
-**Key Dependencies:** 
+**Key Dependencies:**
+
 - @modelcontextprotocol/sdk
 - Hono (HTTP server)
 - React (overlay UI)
 - Vercel AI SDK
 
 **Must be compatible with:**
+
 - Strict TypeScript mode
 - ESLint rules
 - Existing monorepo structure
@@ -300,18 +335,22 @@ To properly evaluate skills, keep these core X4 Assistant workflows in mind:
 ## 5. Deliverables
 
 ### 5.1 Research Reports
+
 - `docs/agent-skills-research/00-source-filter.md` - Initial filtering results
 - `docs/agent-skills-research/[source-name].md` - One per researched source (30+ files)
 - `docs/agent-skills-research/FINAL-REPORT.md` - Synthesis and recommendations
 
 ### 5.2 Implementation Roadmap
+
 Part of FINAL-REPORT.md:
+
 - Priority-ordered skill list
 - Integration plan by phase
 - Effort estimates
 - Dependency analysis
 
 ### 5.3 Skills Source Index
+
 - `docs/agent-skills-sources.md` - Master list of all sources with status
 
 ---
