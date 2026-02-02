@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  X4 AI Connector - Mission Director Script
+  
+  This MD script handles game events and triggers data collection/command execution.
+-->
+<mdscript name="X4AIConnector" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="md.xsd">
+  <cues>
+    
+    <!-- =========================================================================
+         INITIALIZATION
+         ========================================================================= -->
+    
+    <cue name="X4AIConnector_Init" instantiate="false" namespace="this">
+      <conditions>
+        <check_any>
+          <event_game_loaded />
+          <event_player_created />
+        </check_any>
+      </conditions>
+      <actions>
+        <!-- Initialize the connector after a short delay -->
+        <debug_text text="'[X4 AI Connector] Initializing...'" filter="general" />
+        <set_value name="$ServerUrl" exact="'http://localhost:8080'" />
+        <set_value name="$UpdateInterval" exact="5s" />
+        <set_value name="$CommandPollInterval" exact="1s" />
+        <set_value name="$Enabled" exact="true" />
+        
+        <!-- Signal that we're ready -->
+        <signal_cue_instantly cue="X4AIConnector_DataUpdater" />
+        <signal_cue_instantly cue="X4AIConnector_CommandPoller" />
+      </actions>
+    </cue>
+    
+    <!-- =========================================================================
+         DATA UPDATER
+         Periodically collects and sends game data to the API server
+         ========================================================================= -->
+    
+    <cue name="X4AIConnector_DataUpdater" instantiate="false" namespace="this">
+      <conditions>
+        <event_cue_signalled />
+      </conditions>
+      <actions>
+        <do_if value="X4AIConnector_Init.$Enabled">
+          <!-- Collect and send game state -->
+          <run_actions ref="X4AIConnector_SendGameState" />
+          
+          <!-- Schedule next update -->
+          <reset_cue cue="this" />
+          <wait exact="X4AIConnector_Init.$UpdateInterval" />
+          <signal_cue_instantly cue="this" />
+        </do_if>
+      </actions>
+    </cue>
+    
+    <!-- =========================================================================
+         COMMAND POLLER
+         Polls for pending commands from the API server
+         ========================================================================= -->
+    
+    <cue name="X4AIConnector_CommandPoller" instantiate="false" namespace="this">
+      <conditions>
+        <event_cue_signalled />
+      </conditions>
+      <actions>
+        <do_if value="X4AIConnector_Init.$Enabled">
+          <!-- Poll for commands -->
+          <run_actions ref="X4AIConnector_PollCommands" />
+          
+          <!-- Schedule next poll -->
+          <reset_cue cue="this" />
+          <wait exact="X4AIConnector_Init.$CommandPollInterval" />
+          <signal_cue_instantly cue="this" />
+        </do_if>
+      </actions>
+    </cue>
+    
+    <!-- =========================================================================
+         SEND GAME STATE
+         Collects current game state and sends to API server
+         ========================================================================= -->
+    
+    <library name="X4AIConnector_SendGameState">
+      <actions>
+        <set_value name="$Player" exact="player.entity" />
+        
+        <!-- Build game state JSON -->
+        <set_value name="$GameState" exact="table[]" />
+        <set_value name="$GameState.$timestamp" exact="player.systemtime" />
+        <set_value name="$GameState.$gameTime" exact="player.age" />
+        <set_value name="$GameState.$isPaused" exact="not player.isplayercontrolled" />
+        
+        <!-- Player info -->
+        <set_value name="$PlayerInfo" exact="table[]" />
+        <set_value name="$PlayerInfo.$id" exact="$Player.idcode" />
+        <set_value name="$PlayerInfo.$name" exact="$Player.name" />
+        <set_value name="$PlayerInfo.$money" exact="player.money" />
+        <set_value name="$PlayerInfo.$gameTime" exact="player.age" />
+        
+        <!-- Current sector -->
+        <set_value name="$CurrentSector" exact="table[]" />
+        <set_value name="$CurrentSector.$id" exact="$Player.sector.idcode" />
+        <set_value name="$CurrentSector.$name" exact="$Player.sector.name" />
+        <set_value name="$PlayerInfo.$currentSector" exact="$CurrentSector" />
+        
+        <!-- Player faction -->
+        <set_value name="$PlayerFaction" exact="table[]" />
+        <set_value name="$PlayerFaction.$id" exact="faction.player.id" />
+        <set_value name="$PlayerFaction.$name" exact="faction.player.name" />
+        <set_value name="$PlayerInfo.$faction" exact="$PlayerFaction" />
+        
+        <set_value name="$GameState.$player" exact="$PlayerInfo" />
+        
+        <!-- Send to server using djfhe_http -->
+        <!-- Note: Actual HTTP implementation would use djfhe_http library -->
+        <debug_text text="'[X4 AI Connector] Sending game state update'" filter="general" />
+        
+        <!-- 
+          In actual implementation, this would use:
+          <raise_lua_event name="'x4ai.sendHttpPost'" param="'url=' + X4AIConnector_Init.$ServerUrl + '/api/v1/game/state'" param2="$GameState.tostring()" />
+        -->
+      </actions>
+    </library>
+    
+    <!-- =========================================================================
+         POLL COMMANDS
+         Retrieves pending commands from API server
+         ========================================================================= -->
+    
+    <library name="X4AIConnector_PollCommands">
+      <actions>
+        <debug_text text="'[X4 AI Connector] Polling for commands'" filter="general" />
+        
+        <!-- 
+          In actual implementation:
+          <raise_lua_event name="'x4ai.sendHttpGet'" param="'url=' + X4AIConnector_Init.$ServerUrl + '/api/v1/commands/pending'" />
+          
+          Then process received commands via callback
+        -->
+      </actions>
+    </library>
+    
+    <!-- =========================================================================
+         COMMAND HANDLERS
+         Executes specific commands received from the API server
+         ========================================================================= -->
+    
+    <library name="X4AIConnector_ExecuteCommand">
+      <params>
+        <param name="Command" />
+      </params>
+      <actions>
+        <debug_text text="'[X4 AI Connector] Executing command: ' + $Command.$type" filter="general" />
+        
+        <do_if value="$Command.$type == 'create_trade_order'">
+          <run_actions ref="X4AIConnector_CreateTradeOrder" result="$Result">
+            <param name="Params" value="$Command.$params" />
+          </run_actions>
+        </do_if>
+        
+        <do_elseif value="$Command.$type == 'assign_ship'">
+          <run_actions ref="X4AIConnector_AssignShip" result="$Result">
+            <param name="Params" value="$Command.$params" />
+          </run_actions>
+        </do_elseif>
+        
+        <do_else>
+          <debug_text text="'[X4 AI Connector] Unknown command type: ' + $Command.$type" filter="general" />
+        </do_else>
+        
+        <!-- Send result back to server -->
+        <!-- <raise_lua_event name="'x4ai.sendCommandResult'" param="$Command.$id" param2="$Result" /> -->
+      </actions>
+    </library>
+    
+    <!-- =========================================================================
+         CREATE TRADE ORDER
+         Creates a buy/sell order on a station
+         ========================================================================= -->
+    
+    <library name="X4AIConnector_CreateTradeOrder">
+      <params>
+        <param name="Params" />
+      </params>
+      <actions>
+        <set_value name="$Result" exact="table[]" />
+        <set_value name="$Result.$success" exact="false" />
+        
+        <!-- Find the station -->
+        <find_object name="$Station" class="class.station" idcode="$Params.$stationId" />
+        
+        <do_if value="$Station">
+          <!-- Find the ware -->
+          <set_value name="$Ware" exact="ware.{$Params.$wareId}" />
+          
+          <do_if value="$Ware">
+            <!-- Create the trade offer -->
+            <!-- This is a simplified example - actual implementation would 
+                 manipulate the station's trade offers through the game API -->
+            <debug_text text="'[X4 AI Connector] Creating ' + $Params.$type + ' order for ' + $Ware.name + ' at ' + $Station.name" filter="general" />
+            
+            <set_value name="$Result.$success" exact="true" />
+            <set_value name="$Result.$message" exact="'Trade order created'" />
+          </do_if>
+          <do_else>
+            <set_value name="$Result.$error" exact="'Ware not found: ' + $Params.$wareId" />
+          </do_else>
+        </do_if>
+        <do_else>
+          <set_value name="$Result.$error" exact="'Station not found: ' + $Params.$stationId" />
+        </do_else>
+        
+        <return value="$Result" />
+      </actions>
+    </library>
+    
+    <!-- =========================================================================
+         ASSIGN SHIP
+         Assigns a ship to a commander (station or ship)
+         ========================================================================= -->
+    
+    <library name="X4AIConnector_AssignShip">
+      <params>
+        <param name="Params" />
+      </params>
+      <actions>
+        <set_value name="$Result" exact="table[]" />
+        <set_value name="$Result.$success" exact="false" />
+        
+        <!-- Find the ship -->
+        <find_object name="$Ship" class="class.ship" idcode="$Params.$shipId" />
+        
+        <do_if value="$Ship and $Ship.owner == faction.player">
+          <!-- Find the commander -->
+          <find_object name="$Commander" idcode="$Params.$commanderId" />
+          
+          <do_if value="$Commander">
+            <!-- Assign the ship -->
+            <debug_text text="'[X4 AI Connector] Assigning ' + $Ship.name + ' to ' + $Commander.name" filter="general" />
+            
+            <!-- Actual assignment would use:
+                 <set_object_commander object="$Ship" commander="$Commander" assignment="..." />
+            -->
+            
+            <set_value name="$Result.$success" exact="true" />
+            <set_value name="$Result.$message" exact="'Ship assigned'" />
+          </do_if>
+          <do_else>
+            <set_value name="$Result.$error" exact="'Commander not found: ' + $Params.$commanderId" />
+          </do_else>
+        </do_if>
+        <do_else>
+          <set_value name="$Result.$error" exact="'Ship not found or not owned by player: ' + $Params.$shipId" />
+        </do_else>
+        
+        <return value="$Result" />
+      </actions>
+    </library>
+    
+    <!-- =========================================================================
+         EVENT HANDLERS
+         Responds to game events to send real-time updates
+         ========================================================================= -->
+    
+    <cue name="X4AIConnector_OnLogbookEntry" instantiate="true" namespace="this">
+      <conditions>
+        <event_player_newlogbook />
+      </conditions>
+      <actions>
+        <do_if value="X4AIConnector_Init.$Enabled">
+          <!-- Send logbook entry to server -->
+          <debug_text text="'[X4 AI Connector] New logbook entry'" filter="general" />
+          <!-- Implementation would extract entry details and POST to /api/v1/logbook -->
+        </do_if>
+      </actions>
+    </cue>
+    
+    <cue name="X4AIConnector_OnMissionOffered" instantiate="true" namespace="this">
+      <conditions>
+        <event_mission_offered />
+      </conditions>
+      <actions>
+        <do_if value="X4AIConnector_Init.$Enabled">
+          <!-- Send mission offer to server -->
+          <debug_text text="'[X4 AI Connector] New mission offered'" filter="general" />
+        </do_if>
+      </actions>
+    </cue>
+    
+  </cues>
+</mdscript>

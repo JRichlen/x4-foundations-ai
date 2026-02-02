@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  X4 AI Connector Extension
+  
+  This extension connects X4 Foundations to the X4 AI Assistant MCP server.
+  It collects game data and sends it to the API server, and receives commands
+  to execute in-game actions.
+  
+  Requirements:
+  - djfhe_http mod (HTTP client library)
+  - Disable "Protected UI Mode" in game settings
+  
+  Installation:
+  1. Copy this folder to X4's extensions directory
+  2. Install djfhe_http mod
+  3. Start the X4 Game API server
+  4. Launch X4 and load a save
+-->
+<content
+    id="x4_ai_connector"
+    name="X4 AI Connector"
+    description="Connects X4 to the AI Assistant for intelligent automation and data access"
+    author="JRichlen"
+    version="010"
+    date="2026-02-02"
+    save="0"
+    enabled="1"
+    sync="false">
+    
+    <dependency id="djfhe_http" version="100" optional="false" />
+    
+</content>
