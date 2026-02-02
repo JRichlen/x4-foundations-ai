@@ -1,0 +1,75 @@
+name: Beads Issue Tracking
+
+on:
+  push:
+    branches: [main, develop]
+    paths:
+      - '.beads/**'
+  pull_request:
+    branches: [main, develop]
+    paths:
+      - '.beads/**'
+
+jobs:
+  beads-status:
+    name: Beads Status Check
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Install beads CLI
+        env:
+          BD_VERSION: "0.49.3"
+        run: |
+          # Download specific version for reproducibility
+          curl -fsSL "https://github.com/steveyegge/beads/releases/download/v${BD_VERSION}/beads_${BD_VERSION}_linux_amd64.tar.gz" -o beads.tar.gz
+          tar -xzf beads.tar.gz
+          sudo mv bd /usr/local/bin/
+          bd version
+
+      - name: Show beads status
+        run: |
+          echo "## 📋 Beads Issue Status" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          
+          # Get status in JSON and parse it
+          STATUS=$(bd --no-db status --json)
+          
+          TOTAL=$(echo "$STATUS" | jq -r '.summary.total_issues')
+          OPEN=$(echo "$STATUS" | jq -r '.summary.open_issues')
+          IN_PROGRESS=$(echo "$STATUS" | jq -r '.summary.in_progress_issues')
+          CLOSED=$(echo "$STATUS" | jq -r '.summary.closed_issues')
+          BLOCKED=$(echo "$STATUS" | jq -r '.summary.blocked_issues')
+          READY=$(echo "$STATUS" | jq -r '.summary.ready_issues')
+          
+          echo "| Status | Count |" >> $GITHUB_STEP_SUMMARY
+          echo "|--------|-------|" >> $GITHUB_STEP_SUMMARY
+          echo "| 📊 Total Issues | $TOTAL |" >> $GITHUB_STEP_SUMMARY
+          echo "| 🟢 Open | $OPEN |" >> $GITHUB_STEP_SUMMARY
+          echo "| 🔄 In Progress | $IN_PROGRESS |" >> $GITHUB_STEP_SUMMARY
+          echo "| ✅ Closed | $CLOSED |" >> $GITHUB_STEP_SUMMARY
+          echo "| 🚫 Blocked | $BLOCKED |" >> $GITHUB_STEP_SUMMARY
+          echo "| 🎯 Ready to Work | $READY |" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+
+      - name: List ready issues
+        run: |
+          echo "### 🎯 Ready Issues" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          bd --no-db ready >> $GITHUB_STEP_SUMMARY 2>&1 || echo "No ready issues" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+
+      - name: Check for orphaned issues
+        if: github.event_name == 'pull_request'
+        run: |
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "### 🔍 Orphan Check" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "Checking for issues referenced in commits but not closed..." >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
+          bd --no-db orphans >> $GITHUB_STEP_SUMMARY 2>&1 || echo "No orphaned issues detected" >> $GITHUB_STEP_SUMMARY
+          echo '```' >> $GITHUB_STEP_SUMMARY
