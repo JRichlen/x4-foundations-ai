@@ -97,15 +97,15 @@ bd help
 
 ### Essential Commands
 
-| Command | Action |
-|---------|--------|
-| `bd ready` | List tasks with no open blockers |
-| `bd create "Title" -p 0` | Create a P0 task |
-| `bd show <id>` | View task details and audit trail |
-| `bd close <id>` | Complete work |
-| `bd sync` | Sync with git (run at session end) |
-| `bd list` | List all issues |
-| `bd dep add <child> <parent>` | Link tasks with dependencies |
+| Command                       | Action                             |
+| ----------------------------- | ---------------------------------- |
+| `bd ready`                    | List tasks with no open blockers   |
+| `bd create "Title" -p 0`      | Create a P0 task                   |
+| `bd show <id>`                | View task details and audit trail  |
+| `bd close <id>`               | Complete work                      |
+| `bd sync`                     | Sync with git (run at session end) |
+| `bd list`                     | List all issues                    |
+| `bd dep add <child> <parent>` | Link tasks with dependencies       |
 
 ### JSON Output for Agents
 
@@ -136,6 +136,7 @@ Beads supports hierarchical IDs for epics:
 ## Dependencies
 
 **Runtime:**
+
 - Git (for sync)
 
 **No other runtime dependencies** - single static binary.
@@ -161,6 +162,7 @@ Beads supports hierarchical IDs for epics:
 - [ ] Large (> 3 days)
 
 **Breakdown:**
+
 - CLI installation: 5 minutes
 - Project initialization: 5 minutes
 - Documentation updates: 30 minutes

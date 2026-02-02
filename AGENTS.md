@@ -19,13 +19,13 @@ This project uses **bd (beads)** for distributed, git-backed issue tracking opti
 
 ### Quick Reference
 
-| Command | Action |
-|---------|--------|
-| `bd ready` | List tasks with no open blockers |
-| `bd create "Title" -p 0` | Create a P0 task |
-| `bd show <id>` | View task details and audit trail |
-| `bd close <id>` | Complete work |
-| `bd sync` | Sync with git (run at session end) |
+| Command                       | Action                                     |
+| ----------------------------- | ------------------------------------------ |
+| `bd ready`                    | List tasks with no open blockers           |
+| `bd create "Title" -p 0`      | Create a P0 task                           |
+| `bd show <id>`                | View task details and audit trail          |
+| `bd close <id>`               | Complete work                              |
+| `bd sync`                     | Sync with git (run at session end)         |
 | `bd dep add <child> <parent>` | Link tasks (blocks, related, parent-child) |
 
 ### Agent Session Workflow
@@ -890,6 +890,7 @@ This document should be:
 7. **Hand off** - Provide context for next session
 
 **CRITICAL RULES:**
+
 - Work is NOT complete until `git push` succeeds
 - NEVER stop before pushing - that leaves work stranded locally
 - NEVER say "ready to push when you are" - YOU must push

@@ -163,15 +163,15 @@ bd ready  # List available tasks
 
 ### Usage
 
-| Command | Action |
-|---------|--------|
-| `bd ready` | List tasks with no open blockers |
-| `bd create "Title" -p 0` | Create a P0 (highest priority) task |
-| `bd show <id>` | View task details |
-| `bd close <id>` | Complete work |
-| `bd sync` | Sync with git (run at session end) |
-| `bd list` | List all issues |
-| `bd dep add <child> <parent>` | Link tasks with dependencies |
+| Command                       | Action                              |
+| ----------------------------- | ----------------------------------- |
+| `bd ready`                    | List tasks with no open blockers    |
+| `bd create "Title" -p 0`      | Create a P0 (highest priority) task |
+| `bd show <id>`                | View task details                   |
+| `bd close <id>`               | Complete work                       |
+| `bd sync`                     | Sync with git (run at session end)  |
+| `bd list`                     | List all issues                     |
+| `bd dep add <child> <parent>` | Link tasks with dependencies        |
 
 ### Session Workflow
 

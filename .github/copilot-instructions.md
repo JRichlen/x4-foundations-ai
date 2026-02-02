@@ -12,14 +12,14 @@ This project uses **bd (beads)** for distributed, git-backed issue tracking opti
 
 ### Quick Reference
 
-| Command | Action |
-|---------|--------|
-| `bd ready` | List tasks with no open blockers |
-| `bd create "Title" -p 0` | Create a P0 task |
-| `bd show <id>` | View task details and audit trail |
-| `bd close <id>` | Complete work |
-| `bd sync` | Sync with git (run at session end) |
-| `bd dep add <child> <parent>` | Link tasks |
+| Command                       | Action                             |
+| ----------------------------- | ---------------------------------- |
+| `bd ready`                    | List tasks with no open blockers   |
+| `bd create "Title" -p 0`      | Create a P0 task                   |
+| `bd show <id>`                | View task details and audit trail  |
+| `bd close <id>`               | Complete work                      |
+| `bd sync`                     | Sync with git (run at session end) |
+| `bd dep add <child> <parent>` | Link tasks                         |
 
 ### Session Workflow
 
