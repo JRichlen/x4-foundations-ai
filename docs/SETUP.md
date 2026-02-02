@@ -20,6 +20,7 @@
 
 - **Visual Studio Code:** Recommended IDE ([Download](https://code.visualstudio.com/))
 - **Docker:** For containerized X4 REST Server (optional)
+- **Beads (bd):** Git-backed issue tracking for AI agents ([Installation](#beads-setup-optional))
 
 ---
 
@@ -109,6 +110,84 @@ MCP_SERVER_PORT=3000
 # Overlay configuration (Phase 3)
 OVERLAY_PORT=5173
 ```
+
+---
+
+## Beads Setup (Optional)
+
+Beads (bd) is a distributed, git-backed issue tracker for AI agents. It provides persistent task tracking with dependency management across sessions.
+
+### Why Beads?
+
+- **Agent-optimized:** JSON output, dependency tracking, and auto-ready task detection
+- **Git-backed:** Issues sync via git, work offline, branch-scoped
+- **Zero conflict:** Hash-based IDs prevent merge collisions
+- **CLI-first:** Direct command-line usage, context-efficient (~1-2k tokens)
+
+### Installation
+
+#### 1. Install the CLI (choose one method)
+
+```bash
+# Homebrew (recommended for macOS/Linux)
+brew install beads
+
+# npm (planned / optional)
+# NOTE: The npm package name for Beads may change. Check the official repo
+#       at https://github.com/steveyegge/beads for the latest npm install
+#       instructions and package name before using this method.
+# Example (update with the actual package name from the Beads docs):
+# npm install -g <beads-npm-package-name>
+
+# Go (requires Go 1.24+)
+go install github.com/steveyegge/beads/cmd/bd@latest
+
+# Install script (Linux/macOS/FreeBSD)
+curl -fsSL https://raw.githubusercontent.com/steveyegge/beads/main/scripts/install.sh | bash
+```
+
+#### 2. Initialize Beads in the Project
+
+The project is already initialized with beads. For new clones:
+
+```bash
+cd x4-foundations-ai
+bd init --quiet
+```
+
+This creates a `.beads/` directory with the issue database.
+
+#### 3. Verify Installation
+
+```bash
+bd version
+bd help
+bd ready  # List available tasks
+```
+
+### Usage
+
+| Command                       | Action                              |
+| ----------------------------- | ----------------------------------- |
+| `bd ready`                    | List tasks with no open blockers    |
+| `bd create "Title" -p 0`      | Create a P0 (highest priority) task |
+| `bd show <id>`                | View task details                   |
+| `bd close <id>`               | Complete work                       |
+| `bd sync`                     | Sync with git (run at session end)  |
+| `bd list`                     | List all issues                     |
+| `bd dep add <child> <parent>` | Link tasks with dependencies        |
+
+### Session Workflow
+
+1. **Start:** `bd ready` to find unblocked work
+2. **Work:** Create sub-issues with `bd create` as needed
+3. **End:** `bd sync` to persist changes to git
+
+### Documentation
+
+- [Beads Repository](https://github.com/steveyegge/beads)
+- [Installation Guide](https://github.com/steveyegge/beads/blob/main/docs/INSTALLING.md)
+- [Skill Research Report](./agent-skills-research/steveyegge-beads.md)
 
 ---
 
