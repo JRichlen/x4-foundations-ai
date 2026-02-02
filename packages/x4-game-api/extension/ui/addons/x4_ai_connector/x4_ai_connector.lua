@@ -80,8 +80,10 @@ end
 -- JSON decode helper (simple implementation for responses)
 local function jsonDecode(str)
     -- Use game's built-in JSON parser if available, otherwise basic parsing
+    -- Note: This is a simplified parser - in production, use a proper JSON library
     local success, result = pcall(function()
-        return loadstring("return " .. str:gsub('null', 'nil'):gsub('true', 'true'):gsub('false', 'false'))()
+        -- Convert JSON null to Lua nil (true/false are valid in both)
+        return loadstring("return " .. str:gsub('null', 'nil'))()
     end)
     if success then
         return result
