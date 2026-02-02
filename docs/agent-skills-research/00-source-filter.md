@@ -29,54 +29,54 @@ A source is **viable** if:
 
 ### Viable Sources (Move to Phase 2)
 
-| #   | Repository                                         | Reason                                                                                         | Skills Preview                                                                     |
-| --- | -------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| 1   | anthropics/skills                                  | Canonical Claude Skills repository with 50+ production-grade skills                            | Document processing, webapp testing, MCP server builder, creative tools            |
-| 2   | openai/skills                                      | Official Skills Catalog for Codex with tiered skill structure                                  | gh-address-comments, gh-fix-ci, notion-knowledge-capture                           |
-| 3   | huggingface/skills                                 | Agent skills for ML workflows, cross-platform compatible                                       | hf-cli, hf-datasets, hf-trainer, hf-evaluation, hf-jobs                            |
-| 4   | skillcreatorai/Ai-Agent-Skills                     | Universal skills installer ("Homebrew for AI Agent Skills"), cross-platform                    | Frontend, backend, code review, refactoring, document handling, testing skills     |
-| 5   | karanb192/awesome-claude-skills                    | Curated list of 50+ Claude Skills, community-maintained                                        | TDD, debugging, git workflows, security, data analysis, writing assistance         |
-| 8   | DougTrajano/pydantic-ai-skills                     | Type-safe Python framework for Agent Skills, Anthropic-compatible                              | Progressive disclosure, skill validation, security features                        |
-| 11  | gradion-ai/freeact-skills                          | Skills for freeact agent library with programmatic tool chaining                               | Executable Python-based workflows, domain knowledge chunks                         |
-| 17  | chrisvoncsefalvay/claude-d3js-skill                | D3.js data visualization skill for Claude                                                      | Data visualization, charting capabilities                                          |
-| 18  | lackeyjb/playwright-skill                          | Browser automation skill with dynamic Playwright script generation                             | Web testing, UI automation, visible browser support                                |
-| 22  | gapmiss/obsidian-plugin-skill                      | Expert skill for Obsidian.md plugin development with 27 ESLint rules                           | Plugin creation, validation, code quality enforcement                              |
-| 25  | coffeefuelbump/csv-data-summarizer-claude-skill    | CSV data processing and summarization                                                          | Data parsing, summarization, tabular data handling                                 |
-| 26  | SawyerHood/dev-browser                             | Persistent browser automation with LLM-friendly DOM snapshots                                  | Web automation, scraping, UI testing, Chrome extension support                     |
-| 28  | fractalmind-ai/agent-manager-skill                 | Multi-agent lifecycle management via tmux sessions                                             | Agent start/stop/monitor, task assignment, cron scheduling                         |
-| 29  | hashgraph-online/hol-claude-skills                 | Agent discovery and UAID resolution for Hedera/Web3                                            | Agent search, UAID resolution, registry stats, agent chat                          |
-| 30  | gmickel/sheets-cli                                 | Google Sheets CLI with explicit Agent Skills support                                           | Read/write sheets, key-based updates, batch operations                             |
-| 33  | muratcankoylan/Agent-Skills-for-Context-Engineering| Comprehensive context engineering skills for production agents                                 | Context fundamentals, compression, multi-agent patterns, memory systems, evaluation|
+| #   | Repository                                          | Reason                                                                      | Skills Preview                                                                      |
+| --- | --------------------------------------------------- | --------------------------------------------------------------------------- | ----------------------------------------------------------------------------------- |
+| 1   | anthropics/skills                                   | Canonical Claude Skills repository with 50+ production-grade skills         | Document processing, webapp testing, MCP server builder, creative tools             |
+| 2   | openai/skills                                       | Official Skills Catalog for Codex with tiered skill structure               | gh-address-comments, gh-fix-ci, notion-knowledge-capture                            |
+| 3   | huggingface/skills                                  | Agent skills for ML workflows, cross-platform compatible                    | hf-cli, hf-datasets, hf-trainer, hf-evaluation, hf-jobs                             |
+| 4   | skillcreatorai/Ai-Agent-Skills                      | Universal skills installer ("Homebrew for AI Agent Skills"), cross-platform | Frontend, backend, code review, refactoring, document handling, testing skills      |
+| 5   | karanb192/awesome-claude-skills                     | Curated list of 50+ Claude Skills, community-maintained                     | TDD, debugging, git workflows, security, data analysis, writing assistance          |
+| 8   | DougTrajano/pydantic-ai-skills                      | Type-safe Python framework for Agent Skills, Anthropic-compatible           | Progressive disclosure, skill validation, security features                         |
+| 11  | gradion-ai/freeact-skills                           | Skills for freeact agent library with programmatic tool chaining            | Executable Python-based workflows, domain knowledge chunks                          |
+| 17  | chrisvoncsefalvay/claude-d3js-skill                 | D3.js data visualization skill for Claude                                   | Data visualization, charting capabilities                                           |
+| 18  | lackeyjb/playwright-skill                           | Browser automation skill with dynamic Playwright script generation          | Web testing, UI automation, visible browser support                                 |
+| 22  | gapmiss/obsidian-plugin-skill                       | Expert skill for Obsidian.md plugin development with 27 ESLint rules        | Plugin creation, validation, code quality enforcement                               |
+| 25  | coffeefuelbump/csv-data-summarizer-claude-skill     | CSV data processing and summarization                                       | Data parsing, summarization, tabular data handling                                  |
+| 26  | SawyerHood/dev-browser                              | Persistent browser automation with LLM-friendly DOM snapshots               | Web automation, scraping, UI testing, Chrome extension support                      |
+| 28  | fractalmind-ai/agent-manager-skill                  | Multi-agent lifecycle management via tmux sessions                          | Agent start/stop/monitor, task assignment, cron scheduling                          |
+| 29  | hashgraph-online/hol-claude-skills                  | Agent discovery and UAID resolution for Hedera/Web3                         | Agent search, UAID resolution, registry stats, agent chat                           |
+| 30  | gmickel/sheets-cli                                  | Google Sheets CLI with explicit Agent Skills support                        | Read/write sheets, key-based updates, batch operations                              |
+| 33  | muratcankoylan/Agent-Skills-for-Context-Engineering | Comprehensive context engineering skills for production agents              | Context fundamentals, compression, multi-agent patterns, memory systems, evaluation |
 
 ### Filtered Out Sources
 
-| #   | Repository                                                | Reason for Filtering                                                                           |
-| --- | --------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
-| 6   | shajith003/awesome-claude-skills                          | Appears to be duplicate/fork of karanb192/awesome-claude-skills                                |
-| 7   | GuDaStudio/skills                                         | Insufficient information - likely empty or undocumented                                        |
-| 9   | OmidZamani/dspy-skills                                    | DSPy-specific, may not be compatible with MCP/Claude workflow                                  |
-| 10  | ckanner/agent-skills                                      | Insufficient information - likely empty or undocumented                                        |
-| 12  | gotalab/skillport                                         | Insufficient information - may not contain actual skills                                       |
-| 13  | mhattingpete/claude-skills-marketplace                    | Marketplace/aggregator, not actual skill implementations                                       |
-| 14  | kukapay/crypto-skills                                     | Crypto-specific, not relevant to X4 game assistant                                             |
-| 15  | smerchek/claude-epub-skill                                | Very narrow scope (EPUB only), low priority for X4 assistant                                   |
-| 16  | zxkane/aws-skills                                         | AWS-specific, not directly relevant to X4 game assistant                                       |
-| 19  | rickygao/specrate                                         | Insufficient information - purpose unclear                                                     |
-| 20  | conorluddy/ios-simulator-skill                            | iOS-specific, not relevant to X4 game assistant                                                |
-| 21  | kylehughes/the-unofficial-swift-concurrency-migration-skill| Swift-specific, not compatible with TypeScript/Node.js                                        |
-| 23  | frmoretto/stream-coding                                   | Stream coding specific, limited relevance                                                      |
-| 24  | ameyalambat128/swiftui-skills                             | SwiftUI-specific, not compatible with TypeScript/Node.js                                       |
-| 27  | dannwaneri/vectorize-mcp-worker                           | MCP worker but Cloudflare Workers specific                                                     |
-| 31  | caopulan/Notification-Skill                               | Very narrow scope (notifications only)                                                         |
-| 32  | fabioc-aloha/spotify-skill                                | Spotify-specific, not relevant to X4 game assistant                                            |
-| 34  | jakedahn/pomodoro                                         | Pomodoro timer, not relevant to X4 game assistant                                              |
-| 35  | yzfly/Mind-Cloning-Engineering                            | Research/academic focus, not practical skills                                                  |
+| #   | Repository                                                  | Reason for Filtering                                            |
+| --- | ----------------------------------------------------------- | --------------------------------------------------------------- |
+| 6   | shajith003/awesome-claude-skills                            | Appears to be duplicate/fork of karanb192/awesome-claude-skills |
+| 7   | GuDaStudio/skills                                           | Insufficient information - likely empty or undocumented         |
+| 9   | OmidZamani/dspy-skills                                      | DSPy-specific, may not be compatible with MCP/Claude workflow   |
+| 10  | ckanner/agent-skills                                        | Insufficient information - likely empty or undocumented         |
+| 12  | gotalab/skillport                                           | Insufficient information - may not contain actual skills        |
+| 13  | mhattingpete/claude-skills-marketplace                      | Marketplace/aggregator, not actual skill implementations        |
+| 14  | kukapay/crypto-skills                                       | Crypto-specific, not relevant to X4 game assistant              |
+| 15  | smerchek/claude-epub-skill                                  | Very narrow scope (EPUB only), low priority for X4 assistant    |
+| 16  | zxkane/aws-skills                                           | AWS-specific, not directly relevant to X4 game assistant        |
+| 19  | rickygao/specrate                                           | Insufficient information - purpose unclear                      |
+| 20  | conorluddy/ios-simulator-skill                              | iOS-specific, not relevant to X4 game assistant                 |
+| 21  | kylehughes/the-unofficial-swift-concurrency-migration-skill | Swift-specific, not compatible with TypeScript/Node.js          |
+| 23  | frmoretto/stream-coding                                     | Stream coding specific, limited relevance                       |
+| 24  | ameyalambat128/swiftui-skills                               | SwiftUI-specific, not compatible with TypeScript/Node.js        |
+| 27  | dannwaneri/vectorize-mcp-worker                             | MCP worker but Cloudflare Workers specific                      |
+| 31  | caopulan/Notification-Skill                                 | Very narrow scope (notifications only)                          |
+| 32  | fabioc-aloha/spotify-skill                                  | Spotify-specific, not relevant to X4 game assistant             |
+| 34  | jakedahn/pomodoro                                           | Pomodoro timer, not relevant to X4 game assistant               |
+| 35  | yzfly/Mind-Cloning-Engineering                              | Research/academic focus, not practical skills                   |
 
 ### Pending Review
 
-| #   | Repository                     | Notes                                                        |
-| --- | ------------------------------ | ------------------------------------------------------------ |
-| -   | All viable sources above       | Ready for Phase 2 detailed research                          |
+| #   | Repository               | Notes                               |
+| --- | ------------------------ | ----------------------------------- |
+| -   | All viable sources above | Ready for Phase 2 detailed research |
 
 ---
 

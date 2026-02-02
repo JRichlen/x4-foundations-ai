@@ -85,14 +85,17 @@ cp -r dev-browser ~/.claude/skills/
 **Language:** JavaScript
 
 #### Description
+
 Provides Claude agents with full browser control capabilities including persistent sessions, LLM-optimized DOM access, and visual feedback.
 
 #### Evaluation
 
 **Q1: Primary workflow support?**
+
 - [x] YES - Overlay UI testing and web-based interactions
 
 **Q2: Hard failure or safety risk if missing?**
+
 - [ ] NO - Can test manually or use alternative tools
 
 #### Category: 🟩 NEED TO HAVE
@@ -102,12 +105,14 @@ Provides Claude agents with full browser control capabilities including persiste
 #### Integration Notes
 
 **For X4 Assistant:**
+
 1. **Overlay Testing:** Automated UI component testing
 2. **Web Scraping:** If X4 data sources require web access
 3. **Integration Testing:** End-to-end overlay functionality
 4. **Debugging:** Visual verification of UI states
 
 **Technical Integration:**
+
 - Playwright dependency management
 - Session state for authenticated testing
 - Screenshot assertions for UI validation
@@ -118,14 +123,14 @@ Provides Claude agents with full browser control capabilities including persiste
 
 ## Capabilities Matrix
 
-| Capability | Description | X4 Use Case |
-|------------|-------------|-------------|
-| **Persistent Sessions** | State across scripts | Multi-step UI tests |
-| **DOM Snapshots** | AI-readable page structure | Overlay inspection |
-| **Visual Debugging** | Screenshots | UI verification |
-| **Extension Mode** | Chrome control | Dev workflow |
-| **Batch Scripts** | Full automation | Regression tests |
-| **Interactive Mode** | Step-by-step | Debugging |
+| Capability              | Description                | X4 Use Case         |
+| ----------------------- | -------------------------- | ------------------- |
+| **Persistent Sessions** | State across scripts       | Multi-step UI tests |
+| **DOM Snapshots**       | AI-readable page structure | Overlay inspection  |
+| **Visual Debugging**    | Screenshots                | UI verification     |
+| **Extension Mode**      | Chrome control             | Dev workflow        |
+| **Batch Scripts**       | Full automation            | Regression tests    |
+| **Interactive Mode**    | Step-by-step               | Debugging           |
 
 ---
 
@@ -147,7 +152,7 @@ const dom = await page.getARIASnapshot();
 // Maintain state across operations
 const session = new BrowserSession({
   persistent: true,
-  storePath: './sessions'
+  storePath: './sessions',
 });
 ```
 
@@ -183,11 +188,11 @@ if (element) {
 
 Based on documented benchmarks:
 
-| Metric | Value | Notes |
-|--------|-------|-------|
-| Speed | 33% faster | vs. comparable tools |
-| Cost | 40% savings | Token efficiency |
-| Completion | 100% | Complex scenario success |
+| Metric     | Value       | Notes                    |
+| ---------- | ----------- | ------------------------ |
+| Speed      | 33% faster  | vs. comparable tools     |
+| Cost       | 40% savings | Token efficiency         |
+| Completion | 100%        | Complex scenario success |
 
 ---
 
@@ -219,12 +224,12 @@ Based on documented benchmarks:
 
 ### Priority Assessment
 
-| Aspect | Rating | Notes |
-|--------|--------|-------|
-| **X4 Relevance** | High | Overlay testing essential |
-| **Complexity** | Medium | Playwright learning curve |
-| **Dependencies** | Medium | Playwright + Chromium |
-| **Maintenance** | Low | Stable API |
+| Aspect           | Rating | Notes                     |
+| ---------------- | ------ | ------------------------- |
+| **X4 Relevance** | High   | Overlay testing essential |
+| **Complexity**   | Medium | Playwright learning curve |
+| **Dependencies** | Medium | Playwright + Chromium     |
+| **Maintenance**  | Low    | Stable API                |
 
 ### Category: 🟩 NEED TO HAVE
 

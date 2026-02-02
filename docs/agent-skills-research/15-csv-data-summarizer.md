@@ -27,12 +27,12 @@ A Claude skill for automated CSV data analysis. When you upload a CSV file, it a
 
 ### Visualization Types
 
-| Data Type | Visualization |
-|-----------|---------------|
-| **Time-series** | Line plots, trend analysis |
-| **Multiple numeric** | Correlation heatmaps |
-| **Single numeric** | Histograms, distributions |
-| **Categorical** | Bar charts, breakdowns |
+| Data Type            | Visualization              |
+| -------------------- | -------------------------- |
+| **Time-series**      | Line plots, trend analysis |
+| **Multiple numeric** | Correlation heatmaps       |
+| **Single numeric**   | Histograms, distributions  |
+| **Categorical**      | Bar charts, breakdowns     |
 
 ### Key Features
 
@@ -48,9 +48,11 @@ A Claude skill for automated CSV data analysis. When you upload a CSV file, it a
 ### Overall Assessment
 
 **Q1: Primary workflow support?**
+
 - [ ] NO - CSV analysis is not primary X4 workflow
 
 **Q3: Meaningful improvement for common cases?**
+
 - [x] YES - Users may export X4 data to CSV for analysis
 
 ### Category: 🟨 SHOULD HAVE (Data Analysis)
@@ -119,12 +121,12 @@ Katana,Frigate,30,5000000,8%
 
 ### Priority: 🟨 SHOULD HAVE (Phase 3+)
 
-| Aspect | Assessment |
-|--------|------------|
-| **X4 Relevance** | Medium - Data analysis capability |
-| **Pattern Value** | High - Automated analysis pipeline |
-| **Integration Effort** | Medium - Python or port to TS |
-| **Recommendation** | Phase 3+ for data export/analysis |
+| Aspect                 | Assessment                         |
+| ---------------------- | ---------------------------------- |
+| **X4 Relevance**       | Medium - Data analysis capability  |
+| **Pattern Value**      | High - Automated analysis pipeline |
+| **Integration Effort** | Medium - Python or port to TS      |
+| **Recommendation**     | Phase 3+ for data export/analysis  |
 
 ### Key Takeaways
 

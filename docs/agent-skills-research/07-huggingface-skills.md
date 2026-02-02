@@ -16,13 +16,13 @@ A collection of agent skills specifically designed for machine learning workflow
 
 ## Skills Inventory
 
-| Skill | Type | Description | X4 Relevance |
-|-------|------|-------------|--------------|
-| **hf_dataset_creator** | ML Workflow | Create and validate datasets | 🚫 DROP - ML-specific |
-| **hf-llm-trainer** | ML Workflow | Fine-tune LLMs on custom data | 🚫 DROP - ML-specific |
-| **hf_model_evaluation** | ML Workflow | Evaluate model performance | 🚫 DROP - ML-specific |
-| **hf-paper-publisher** | ML Workflow | Publish research to HF Hub | 🚫 DROP - ML-specific |
-| **hf-cli** | Tool | Hugging Face CLI operations | 🚫 DROP - ML-specific |
+| Skill                   | Type        | Description                   | X4 Relevance          |
+| ----------------------- | ----------- | ----------------------------- | --------------------- |
+| **hf_dataset_creator**  | ML Workflow | Create and validate datasets  | 🚫 DROP - ML-specific |
+| **hf-llm-trainer**      | ML Workflow | Fine-tune LLMs on custom data | 🚫 DROP - ML-specific |
+| **hf_model_evaluation** | ML Workflow | Evaluate model performance    | 🚫 DROP - ML-specific |
+| **hf-paper-publisher**  | ML Workflow | Publish research to HF Hub    | 🚫 DROP - ML-specific |
+| **hf-cli**              | Tool        | Hugging Face CLI operations   | 🚫 DROP - ML-specific |
 
 ---
 
@@ -31,12 +31,15 @@ A collection of agent skills specifically designed for machine learning workflow
 ### Overall Assessment
 
 **Q1: Primary workflow support?**
+
 - [ ] NO - ML workflows are not part of X4 game assistant functionality
 
 **Q3: Meaningful improvement for common cases?**
+
 - [ ] NO - X4 users don't need ML training capabilities
 
 **Q4: Cheap + low-risk?**
+
 - [ ] NO - Requires HF infrastructure, paid plans for cloud features
 
 ### Category: 🚫 DROP (for now)
@@ -53,8 +56,9 @@ Despite not being directly applicable, the repository demonstrates:
 
 ```markdown
 # Compatible with multiple agents:
+
 - Claude Code: .claude-plugin
-- Codex: AGENTS.md  
+- Codex: AGENTS.md
 - Gemini CLI: gemini-extension.json
 ```
 
@@ -86,12 +90,12 @@ skills/
 
 ### Priority: 🚫 DROP
 
-| Aspect | Assessment |
-|--------|------------|
-| **X4 Relevance** | None - ML-specific |
-| **Pattern Value** | Medium - Cross-platform format |
-| **Integration Effort** | N/A |
-| **Recommendation** | Skip for X4, reference for skill format only |
+| Aspect                 | Assessment                                   |
+| ---------------------- | -------------------------------------------- |
+| **X4 Relevance**       | None - ML-specific                           |
+| **Pattern Value**      | Medium - Cross-platform format               |
+| **Integration Effort** | N/A                                          |
+| **Recommendation**     | Skip for X4, reference for skill format only |
 
 ### Key Takeaway
 

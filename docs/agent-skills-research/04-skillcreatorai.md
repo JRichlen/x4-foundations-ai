@@ -44,35 +44,35 @@ npx ai-agent-skills browse
 
 ### Development Skills
 
-| Skill | Category | Description | X4 Relevance |
-|-------|----------|-------------|--------------|
-| **frontend-design** | UI | Component styling and design | 🟨 SHOULD - Overlay UI |
-| **backend-development** | Server | APIs, database architecture | 🟩 NEED - MCP server |
-| **code-review** | Quality | Automated PR review | 🟦 COULD - Dev workflow |
-| **code-refactoring** | Quality | Systematic improvement | 🟦 COULD - Dev workflow |
-| **react-best-practices** | UI | React patterns and hooks | 🟨 SHOULD - Overlay dev |
+| Skill                    | Category | Description                  | X4 Relevance            |
+| ------------------------ | -------- | ---------------------------- | ----------------------- |
+| **frontend-design**      | UI       | Component styling and design | 🟨 SHOULD - Overlay UI  |
+| **backend-development**  | Server   | APIs, database architecture  | 🟩 NEED - MCP server    |
+| **code-review**          | Quality  | Automated PR review          | 🟦 COULD - Dev workflow |
+| **code-refactoring**     | Quality  | Systematic improvement       | 🟦 COULD - Dev workflow |
+| **react-best-practices** | UI       | React patterns and hooks     | 🟨 SHOULD - Overlay dev |
 
 ### Data & Document Skills
 
-| Skill | Category | Description | X4 Relevance |
-|-------|----------|-------------|--------------|
-| **pdf** | Document | PDF handling | 🟨 SHOULD - Reports |
+| Skill    | Category | Description        | X4 Relevance            |
+| -------- | -------- | ------------------ | ----------------------- |
+| **pdf**  | Document | PDF handling       | 🟨 SHOULD - Reports     |
 | **xlsx** | Document | Excel spreadsheets | 🟨 SHOULD - Data export |
-| **pptx** | Document | PowerPoint files | 🟦 COULD - Limited use |
+| **pptx** | Document | PowerPoint files   | 🟦 COULD - Limited use  |
 
 ### Testing & QA Skills
 
-| Skill | Category | Description | X4 Relevance |
-|-------|----------|-------------|--------------|
-| **qa-regression** | Testing | Automated regression testing | 🟩 NEED - Quality assurance |
-| **testing-patterns** | Testing | Test structure and patterns | 🟩 NEED - Test development |
+| Skill                | Category | Description                  | X4 Relevance                |
+| -------------------- | -------- | ---------------------------- | --------------------------- |
+| **qa-regression**    | Testing  | Automated regression testing | 🟩 NEED - Quality assurance |
+| **testing-patterns** | Testing  | Test structure and patterns  | 🟩 NEED - Test development  |
 
 ### Integration Skills
 
-| Skill | Category | Description | X4 Relevance |
-|-------|----------|-------------|--------------|
-| **mcp-builder** | Integration | MCP server/tools development | ✅ MUST - Core functionality |
-| **api-integration** | Integration | External API patterns | 🟩 NEED - X4 REST API |
+| Skill               | Category    | Description                  | X4 Relevance                 |
+| ------------------- | ----------- | ---------------------------- | ---------------------------- |
+| **mcp-builder**     | Integration | MCP server/tools development | ✅ MUST - Core functionality |
+| **api-integration** | Integration | External API patterns        | 🟩 NEED - X4 REST API        |
 
 ---
 
@@ -84,7 +84,9 @@ npx ai-agent-skills browse
 **Language:** JavaScript (Node.js)
 
 #### Description
+
 Cross-platform skill installation tool that handles:
+
 - Registry skill installation by name
 - GitHub repository installation
 - Local filesystem installation
@@ -94,9 +96,11 @@ Cross-platform skill installation tool that handles:
 #### Evaluation
 
 **Q1: Primary workflow support?**
+
 - [ ] NO - Installation is developer workflow
 
 **Q3: Meaningful improvement for common cases?**
+
 - [x] YES - Enables easy skill distribution and community contributions
 
 #### Category: 🟨 SHOULD HAVE
@@ -104,6 +108,7 @@ Cross-platform skill installation tool that handles:
 **Reason:** Patterns useful for building X4 skill/plugin distribution system.
 
 #### Integration Notes
+
 - Study CLI architecture for future X4 skill installer
 - Security patterns (path validation, size limits)
 - Multi-agent targeting approach
@@ -118,14 +123,17 @@ Cross-platform skill installation tool that handles:
 **Language:** TypeScript
 
 #### Description
+
 Patterns and tools for building MCP servers and integrating with external services.
 
 #### Evaluation
 
 **Q1: Primary workflow support?**
+
 - [x] YES - MCP server is the core deliverable
 
 **Q2: Hard failure or safety risk if missing?**
+
 - [x] YES - Without MCP patterns, core functionality fails
 
 #### Category: ✅ MUST HAVE
@@ -133,6 +141,7 @@ Patterns and tools for building MCP servers and integrating with external servic
 **Reason:** Essential patterns for X4 MCP server development.
 
 #### Integration Notes
+
 - Direct application to X4 MCP server
 - Tool schema patterns
 - Error handling approaches
@@ -147,7 +156,9 @@ Patterns and tools for building MCP servers and integrating with external servic
 **Language:** TypeScript/JavaScript
 
 #### Description
+
 Server-side development patterns including:
+
 - API architecture
 - Database design
 - Error handling
@@ -156,9 +167,11 @@ Server-side development patterns including:
 #### Evaluation
 
 **Q1: Primary workflow support?**
+
 - [x] YES - MCP server requires backend patterns
 
 **Q2: Hard failure or safety risk if missing?**
+
 - [ ] NO - Can develop without, but quality improves with patterns
 
 #### Category: 🟩 NEED TO HAVE
@@ -166,6 +179,7 @@ Server-side development patterns including:
 **Reason:** Applicable to MCP server architecture and X4 REST API integration.
 
 #### Integration Notes
+
 - API design patterns for MCP tools
 - Error handling strategies
 - Connection management
@@ -180,7 +194,9 @@ Server-side development patterns including:
 **Language:** TypeScript/React
 
 #### Description
+
 UI development patterns including:
+
 - Component architecture
 - React hooks patterns
 - Styling approaches (Tailwind)
@@ -189,9 +205,11 @@ UI development patterns including:
 #### Evaluation
 
 **Q1: Primary workflow support?**
+
 - [x] YES - Overlay UI is a Phase 3 deliverable
 
 **Q2: Hard failure or safety risk if missing?**
+
 - [ ] NO - Can develop without, but quality improves
 
 #### Category: 🟨 SHOULD HAVE
@@ -199,6 +217,7 @@ UI development patterns including:
 **Reason:** Valuable for building the browser overlay UI.
 
 #### Integration Notes
+
 - Component patterns for overlay
 - React hooks for data binding
 - Tailwind styling approach
@@ -213,7 +232,9 @@ UI development patterns including:
 **Language:** JavaScript
 
 #### Description
+
 Testing patterns including:
+
 - Test structure and organization
 - Regression test design
 - Mocking and fixtures
@@ -222,9 +243,11 @@ Testing patterns including:
 #### Evaluation
 
 **Q1: Primary workflow support?**
+
 - [x] YES - Testing is required for quality
 
 **Q2: Hard failure or safety risk if missing?**
+
 - [ ] NO - Can ship without extensive testing
 
 #### Category: 🟩 NEED TO HAVE
@@ -232,6 +255,7 @@ Testing patterns including:
 **Reason:** Required to meet 80% test coverage target.
 
 #### Integration Notes
+
 - Vitest integration patterns
 - MCP tool testing approaches
 - React component testing
@@ -296,13 +320,13 @@ install skill --agent codex
 
 ### Priority Categories
 
-| Category | Count | Skills |
-|----------|-------|--------|
-| ✅ MUST HAVE | 1 | mcp-builder |
-| 🟩 NEED TO HAVE | 4 | backend-development, qa-regression, testing-patterns, api-integration |
-| 🟨 SHOULD HAVE | 4 | frontend-design, react-best-practices, pdf, xlsx |
-| 🟦 COULD HAVE | 2 | code-review, code-refactoring |
-| 🚫 DROP | 0 | - |
+| Category        | Count | Skills                                                                |
+| --------------- | ----- | --------------------------------------------------------------------- |
+| ✅ MUST HAVE    | 1     | mcp-builder                                                           |
+| 🟩 NEED TO HAVE | 4     | backend-development, qa-regression, testing-patterns, api-integration |
+| 🟨 SHOULD HAVE  | 4     | frontend-design, react-best-practices, pdf, xlsx                      |
+| 🟦 COULD HAVE   | 2     | code-review, code-refactoring                                         |
+| 🚫 DROP         | 0     | -                                                                     |
 
 ### Key Takeaways
 

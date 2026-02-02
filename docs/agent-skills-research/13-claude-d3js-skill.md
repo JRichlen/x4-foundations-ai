@@ -18,13 +18,13 @@ A Claude skill for generating sophisticated, interactive data visualizations usi
 
 ### Visualization Types
 
-| Type | Use Case | Complexity |
-|------|----------|------------|
-| **Charts & Graphs** | Bar, line, scatter, area | Low |
-| **Network Diagrams** | Force-directed, hierarchical | High |
-| **Geographic** | Maps with projections | High |
-| **Chord Diagrams** | Relationship visualization | High |
-| **Hierarchical** | Treemaps, sunbursts | Medium |
+| Type                 | Use Case                     | Complexity |
+| -------------------- | ---------------------------- | ---------- |
+| **Charts & Graphs**  | Bar, line, scatter, area     | Low        |
+| **Network Diagrams** | Force-directed, hierarchical | High       |
+| **Geographic**       | Maps with projections        | High       |
+| **Chord Diagrams**   | Relationship visualization   | High       |
+| **Hierarchical**     | Treemaps, sunbursts          | Medium     |
 
 ### Integration Approaches
 
@@ -45,12 +45,15 @@ A Claude skill for generating sophisticated, interactive data visualizations usi
 ### Overall Assessment
 
 **Q1: Primary workflow support?**
+
 - [ ] NO - Visualization is not primary X4 workflow
 
 **Q3: Meaningful improvement for common cases?**
+
 - [ ] NO - X4 data doesn't require complex D3 visualizations
 
 **Q4: Cheap + low-risk?**
+
 - [x] YES - Simple skill, D3 is well-known
 
 ### Category: 🟦 COULD HAVE (Low Priority)
@@ -66,8 +69,8 @@ A Claude skill for generating sophisticated, interactive data visualizations usi
 ```javascript
 // Network diagram of trade routes
 const routes = [
-  { source: "Argon Prime", target: "Holy Vision", goods: 1500 },
-  { source: "Holy Vision", target: "Profit Center", goods: 2000 }
+  { source: 'Argon Prime', target: 'Holy Vision', goods: 1500 },
+  { source: 'Holy Vision', target: 'Profit Center', goods: 2000 },
 ];
 // D3 force-directed graph
 ```
@@ -90,13 +93,13 @@ const routes = [
 
 ## When to Use D3 vs. Simpler Options
 
-| Scenario | D3.js | Simple Chart Library |
-|----------|-------|---------------------|
-| Standard bar/line charts | ❌ Overkill | ✅ Use Chart.js |
-| Network/relationship graphs | ✅ Best choice | ❌ Limited |
-| Custom interactive visuals | ✅ Best choice | ❌ Limited |
-| Quick data display | ❌ Overhead | ✅ Faster |
-| Publication quality | ✅ Full control | ❌ Template-based |
+| Scenario                    | D3.js           | Simple Chart Library |
+| --------------------------- | --------------- | -------------------- |
+| Standard bar/line charts    | ❌ Overkill     | ✅ Use Chart.js      |
+| Network/relationship graphs | ✅ Best choice  | ❌ Limited           |
+| Custom interactive visuals  | ✅ Best choice  | ❌ Limited           |
+| Quick data display          | ❌ Overhead     | ✅ Faster            |
+| Publication quality         | ✅ Full control | ❌ Template-based    |
 
 ---
 
@@ -104,12 +107,12 @@ const routes = [
 
 ### Priority: 🟦 COULD HAVE (Phase 4+)
 
-| Aspect | Assessment |
-|--------|------------|
-| **X4 Relevance** | Low - Enhancement only |
-| **Pattern Value** | Medium - Visualization patterns |
-| **Integration Effort** | Low - D3 well-documented |
-| **Recommendation** | Defer to Phase 4+ polish |
+| Aspect                 | Assessment                      |
+| ---------------------- | ------------------------------- |
+| **X4 Relevance**       | Low - Enhancement only          |
+| **Pattern Value**      | Medium - Visualization patterns |
+| **Integration Effort** | Low - D3 well-documented        |
+| **Recommendation**     | Defer to Phase 4+ polish        |
 
 ### Key Takeaways
 

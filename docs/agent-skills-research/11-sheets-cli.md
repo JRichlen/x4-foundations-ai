@@ -18,12 +18,12 @@ A composable Google Sheets CLI designed for both humans and AI agents. Provides 
 
 ### 1. Core Operations
 
-| Command | Description |
-|---------|-------------|
+| Command      | Description                         |
+| ------------ | ----------------------------------- |
 | `read table` | Read entire sheet or specific range |
-| `append` | Add rows with JSON data |
-| `update key` | Update cells by key column value |
-| `batch` | Multiple operations in one call |
+| `append`     | Add rows with JSON data             |
+| `update key` | Update cells by key column value    |
+| `batch`      | Multiple operations in one call     |
 
 ### 2. Agent Integration
 
@@ -55,9 +55,11 @@ sheets-cli update key \
 ### Overall Assessment
 
 **Q1: Primary workflow support?**
+
 - [ ] NO - Data export is secondary workflow
 
 **Q3: Meaningful improvement for common cases?**
+
 - [x] YES - Users may want to export game data to sheets
 
 ### Category: 🟨 SHOULD HAVE
@@ -110,19 +112,19 @@ sheets-cli read table --sheet "Fleet Ships" --limit 50
 ```typescript
 // MCP tool that exports to Google Sheets
 const exportToSheetssTool = {
-  name: "export_to_sheets",
-  description: "Export X4 data to Google Sheets",
+  name: 'export_to_sheets',
+  description: 'Export X4 data to Google Sheets',
   inputSchema: {
-    type: "object",
+    type: 'object',
     properties: {
-      sheet: { type: "string" },
-      data: { type: "array" }
-    }
+      sheet: { type: 'string' },
+      data: { type: 'array' },
+    },
   },
   handler: async (params) => {
     // Call sheets-cli via subprocess
     return await execSheetsCLI('append', params);
-  }
+  },
 };
 ```
 
@@ -171,12 +173,12 @@ sheets-cli install-skill --codex
 
 ### Priority: 🟨 SHOULD HAVE
 
-| Aspect | Assessment |
-|--------|------------|
-| **X4 Relevance** | Medium - Data export capability |
-| **Pattern Value** | High - Agent skill integration |
-| **Integration Effort** | Medium - OAuth setup required |
-| **Recommendation** | Phase 3+ for data export features |
+| Aspect                 | Assessment                        |
+| ---------------------- | --------------------------------- |
+| **X4 Relevance**       | Medium - Data export capability   |
+| **Pattern Value**      | High - Agent skill integration    |
+| **Integration Effort** | Medium - OAuth setup required     |
+| **Recommendation**     | Phase 3+ for data export features |
 
 ### Key Takeaways
 

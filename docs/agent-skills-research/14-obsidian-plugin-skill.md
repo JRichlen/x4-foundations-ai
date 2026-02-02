@@ -45,12 +45,15 @@ A comprehensive Claude skill for Obsidian plugin development. Encodes 27 ESLint 
 ### Overall Assessment
 
 **Q1: Primary workflow support?**
+
 - [ ] NO - Obsidian plugins are not X4 assistant functionality
 
 **Q3: Meaningful improvement for common cases?**
+
 - [ ] NO - Not relevant to X4 game assistant
 
 **Q4: Cheap + low-risk?**
+
 - [x] YES - Interesting patterns to study
 
 ### Category: 🚫 DROP (Not Relevant)
@@ -69,6 +72,7 @@ A comprehensive Claude skill for Obsidian plugin development. Encodes 27 ESLint 
 
 ```markdown
 # Example: X4 equivalent
+
 - X4 REST API patterns
 - Game data structure knowledge
 - Station/ship type rules
@@ -93,12 +97,12 @@ A comprehensive Claude skill for Obsidian plugin development. Encodes 27 ESLint 
 
 ### Priority: 🚫 DROP
 
-| Aspect | Assessment |
-|--------|------------|
-| **X4 Relevance** | None - Obsidian-specific |
-| **Pattern Value** | Medium - Knowledge encoding |
-| **Integration Effort** | N/A - Not applicable |
-| **Recommendation** | Skip, but note patterns |
+| Aspect                 | Assessment                  |
+| ---------------------- | --------------------------- |
+| **X4 Relevance**       | None - Obsidian-specific    |
+| **Pattern Value**      | Medium - Knowledge encoding |
+| **Integration Effort** | N/A - Not applicable        |
+| **Recommendation**     | Skip, but note patterns     |
 
 ### Key Takeaway
 

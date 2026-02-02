@@ -16,19 +16,19 @@ A community-maintained curated list of 50+ verified Claude Skills organized into
 
 ## Categories Overview
 
-| Category | Description | X4 Relevance |
-|----------|-------------|--------------|
-| **Document & File Processing** | Word, PDF, PowerPoint handling | 🟨 SHOULD - Data export |
-| **Testing & Quality** | TDD, automated testing, code review | 🟩 NEED - Dev quality |
-| **Debugging & Troubleshooting** | Error diagnosis, fixes | 🟦 COULD - Dev workflow |
-| **Collaboration & Workflow** | PR management, git workflows | 🟦 COULD - Dev workflow |
-| **Development & Architecture** | Scaffolding, infrastructure | 🟨 SHOULD - Project setup |
-| **Security & Performance** | Security checks, optimization | 🟨 SHOULD - Production quality |
-| **Documentation & Automation** | Doc generation, task automation | 🟨 SHOULD - Maintenance |
-| **Media & Content Creation** | Image, video, audio processing | 🟦 COULD - Visual features |
-| **Data & Analysis** | Reports, data processing | 🟨 SHOULD - Game data analysis |
-| **Writing & Research** | Technical writing, research | 🟦 COULD - Documentation |
-| **Meta Skills** | Skill creation and management | 🟨 SHOULD - Extensibility |
+| Category                        | Description                         | X4 Relevance                   |
+| ------------------------------- | ----------------------------------- | ------------------------------ |
+| **Document & File Processing**  | Word, PDF, PowerPoint handling      | 🟨 SHOULD - Data export        |
+| **Testing & Quality**           | TDD, automated testing, code review | 🟩 NEED - Dev quality          |
+| **Debugging & Troubleshooting** | Error diagnosis, fixes              | 🟦 COULD - Dev workflow        |
+| **Collaboration & Workflow**    | PR management, git workflows        | 🟦 COULD - Dev workflow        |
+| **Development & Architecture**  | Scaffolding, infrastructure         | 🟨 SHOULD - Project setup      |
+| **Security & Performance**      | Security checks, optimization       | 🟨 SHOULD - Production quality |
+| **Documentation & Automation**  | Doc generation, task automation     | 🟨 SHOULD - Maintenance        |
+| **Media & Content Creation**    | Image, video, audio processing      | 🟦 COULD - Visual features     |
+| **Data & Analysis**             | Reports, data processing            | 🟨 SHOULD - Game data analysis |
+| **Writing & Research**          | Technical writing, research         | 🟦 COULD - Documentation       |
+| **Meta Skills**                 | Skill creation and management       | 🟨 SHOULD - Extensibility      |
 
 ---
 
@@ -36,34 +36,34 @@ A community-maintained curated list of 50+ verified Claude Skills organized into
 
 ### From Testing & Quality
 
-| Skill | Description | Priority |
-|-------|-------------|----------|
-| **tdd-skill** | Test-driven development workflow | 🟩 NEED |
-| **code-review** | Automated code review | 🟨 SHOULD |
-| **linting-enforcement** | Code quality standards | 🟨 SHOULD |
+| Skill                   | Description                      | Priority  |
+| ----------------------- | -------------------------------- | --------- |
+| **tdd-skill**           | Test-driven development workflow | 🟩 NEED   |
+| **code-review**         | Automated code review            | 🟨 SHOULD |
+| **linting-enforcement** | Code quality standards           | 🟨 SHOULD |
 
 ### From Development & Architecture
 
-| Skill | Description | Priority |
-|-------|-------------|----------|
+| Skill                  | Description                   | Priority  |
+| ---------------------- | ----------------------------- | --------- |
 | **project-scaffolder** | Initialize project structures | 🟨 SHOULD |
-| **api-integration** | External API patterns | 🟩 NEED |
-| **mcp-server-builder** | MCP server development | ✅ MUST |
+| **api-integration**    | External API patterns         | 🟩 NEED   |
+| **mcp-server-builder** | MCP server development        | ✅ MUST   |
 
 ### From Data & Analysis
 
-| Skill | Description | Priority |
-|-------|-------------|----------|
-| **data-processor** | Transform and analyze data | 🟨 SHOULD |
-| **report-generator** | Create formatted reports | 🟨 SHOULD |
-| **csv-handler** | CSV file operations | 🟨 SHOULD |
+| Skill                | Description                | Priority  |
+| -------------------- | -------------------------- | --------- |
+| **data-processor**   | Transform and analyze data | 🟨 SHOULD |
+| **report-generator** | Create formatted reports   | 🟨 SHOULD |
+| **csv-handler**      | CSV file operations        | 🟨 SHOULD |
 
 ### From Documentation & Automation
 
-| Skill | Description | Priority |
-|-------|-------------|----------|
-| **api-documenter** | Generate API docs | 🟨 SHOULD |
-| **changelog-generator** | Maintain changelogs | 🟦 COULD |
+| Skill                   | Description         | Priority  |
+| ----------------------- | ------------------- | --------- |
+| **api-documenter**      | Generate API docs   | 🟨 SHOULD |
+| **changelog-generator** | Maintain changelogs | 🟦 COULD  |
 
 ---
 
@@ -72,9 +72,11 @@ A community-maintained curated list of 50+ verified Claude Skills organized into
 ### As Discovery Resource
 
 **Q1: Primary workflow support?**
+
 - [ ] NO - Aggregator, not primary functionality
 
 **Q3: Meaningful improvement for common cases?**
+
 - [x] YES - Helps discover relevant skills quickly
 
 ### Category: 🟨 SHOULD HAVE (as reference)
@@ -88,6 +90,7 @@ A community-maintained curated list of 50+ verified Claude Skills organized into
 ### 1. Skill Discovery Value
 
 The curated list provides:
+
 - Verified, working skills
 - Category organization
 - Quick reference for common needs
@@ -96,6 +99,7 @@ The curated list provides:
 ### 2. Skills Already Researched
 
 Many skills in this list are from sources we've already analyzed:
+
 - anthropics/skills (canonical)
 - openai/skills (official)
 - skillcreatorai (installer)
@@ -103,6 +107,7 @@ Many skills in this list are from sources we've already analyzed:
 ### 3. Additional Skills to Consider
 
 Skills not yet covered in detail:
+
 - **tdd-skill** - For test-driven MCP development
 - **api-integration** - For X4 REST API patterns
 - **data-processor** - For game data transformation
@@ -113,12 +118,12 @@ Skills not yet covered in detail:
 
 ### Priority: 🟨 SHOULD HAVE (Reference)
 
-| Aspect | Assessment |
-|--------|------------|
-| **X4 Relevance** | Medium - Discovery resource |
-| **Pattern Value** | High - Category organization |
-| **Integration Effort** | N/A - Reference only |
-| **Recommendation** | Use as skill discovery resource |
+| Aspect                 | Assessment                      |
+| ---------------------- | ------------------------------- |
+| **X4 Relevance**       | Medium - Discovery resource     |
+| **Pattern Value**      | High - Category organization    |
+| **Integration Effort** | N/A - Reference only            |
+| **Recommendation**     | Use as skill discovery resource |
 
 ### Recommended Usage
 

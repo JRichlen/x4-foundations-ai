@@ -45,6 +45,7 @@ Deep dive into each viable source, evaluating individual skills.
 **Output:** Individual research reports for each source
 
 **All Sources Complete:**
+
 1. ✅ anthropics/skills - [Report](./01-anthropics-skills.md)
 2. ✅ openai/skills - [Report](./02-openai-skills.md)
 3. ✅ Agent-Skills-for-Context-Engineering - [Report](./03-context-engineering.md)
@@ -73,15 +74,15 @@ Compile findings, identify overlaps, create prioritized recommendations.
 
 ### Skills by Priority Category
 
-| Category | Skills Identified |
-|----------|------------------|
-| ✅ **MUST HAVE** | mcp-builder, context-fundamentals, tool-design |
-| 🟩 **NEED TO HAVE** | webapp-testing, memory-systems*, context-compression, context-degradation, dev-browser, playwright-skill, backend-development, testing-patterns |
-| 🟨 **SHOULD HAVE** | xlsx/docx/pdf, skill-creator, skill-installer, create-plan, multi-agent-patterns, evaluation, frontend-design, react-best-practices, sheets-cli, csv-data-summarizer |
-| 🟦 **COULD HAVE** | algorithmic-art, canvas-design, gh-address-comments, gh-fix-ci, agent-manager (future), pydantic patterns, D3.js visualization |
-| 🚫 **DROP** | huggingface skills (ML), freeact skills (different paradigm), obsidian-plugin (not relevant), hol-claude-skills (Web3), slack-gif-creator, brand-guidelines |
+| Category            | Skills Identified                                                                                                                                                    |
+| ------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| ✅ **MUST HAVE**    | mcp-builder, context-fundamentals, tool-design                                                                                                                       |
+| 🟩 **NEED TO HAVE** | webapp-testing, memory-systems\*, context-compression, context-degradation, dev-browser, playwright-skill, backend-development, testing-patterns                     |
+| 🟨 **SHOULD HAVE**  | xlsx/docx/pdf, skill-creator, skill-installer, create-plan, multi-agent-patterns, evaluation, frontend-design, react-best-practices, sheets-cli, csv-data-summarizer |
+| 🟦 **COULD HAVE**   | algorithmic-art, canvas-design, gh-address-comments, gh-fix-ci, agent-manager (future), pydantic patterns, D3.js visualization                                       |
+| 🚫 **DROP**         | huggingface skills (ML), freeact skills (different paradigm), obsidian-plugin (not relevant), hol-claude-skills (Web3), slack-gif-creator, brand-guidelines          |
 
-*\* memory-systems: Patterns valuable; implementation via [steveyegge/beads](https://github.com/steveyegge/beads)*
+_\* memory-systems: Patterns valuable; implementation via [steveyegge/beads](https://github.com/steveyegge/beads)_
 
 ### Key Patterns Discovered
 
@@ -94,12 +95,12 @@ Compile findings, identify overlaps, create prioritized recommendations.
 
 ### Sources by Outcome
 
-| Outcome | Count | Sources |
-|---------|-------|---------|
-| **High Value** | 6 | anthropics, openai, context-engineering, skillcreatorai, dev-browser, playwright |
-| **Medium Value** | 4 | awesome-claude-skills, pydantic, sheets-cli, csv-summarizer |
-| **Future Value** | 2 | agent-manager, D3.js visualization |
-| **DROP** | 4 | huggingface, freeact, obsidian, hol-claude |
+| Outcome          | Count | Sources                                                                          |
+| ---------------- | ----- | -------------------------------------------------------------------------------- |
+| **High Value**   | 6     | anthropics, openai, context-engineering, skillcreatorai, dev-browser, playwright |
+| **Medium Value** | 4     | awesome-claude-skills, pydantic, sheets-cli, csv-summarizer                      |
+| **Future Value** | 2     | agent-manager, D3.js visualization                                               |
+| **DROP**         | 4     | huggingface, freeact, obsidian, hol-claude                                       |
 
 ## How to Use
 
@@ -140,6 +141,7 @@ Results in 5 categories:
 ## ✅ Research Complete
 
 All phases are now complete. See [FINAL-REPORT.md](./FINAL-REPORT.md) for:
+
 - Prioritized skills list (MUST/NEED/SHOULD/COULD/DROP)
 - Key patterns to adopt
 - Implementation roadmap

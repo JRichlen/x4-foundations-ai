@@ -85,12 +85,15 @@ async def add_skills(ctx: RunContext) -> str | None:
 ### Overall Assessment
 
 **Q1: Primary workflow support?**
+
 - [ ] NO - Python framework, X4 MCP server uses TypeScript
 
 **Q3: Meaningful improvement for common cases?**
+
 - [x] YES - Patterns applicable to TypeScript implementation
 
 **Q4: Cheap + low-risk?**
+
 - [x] YES - Study patterns, no direct integration needed
 
 ### Category: 🟦 COULD HAVE (Pattern Reference)
@@ -104,6 +107,7 @@ async def add_skills(ctx: RunContext) -> str | None:
 ### 1. Type-Safe Skill Loading
 
 **Python Pattern:**
+
 ```python
 class SkillMetadata:
     name: str
@@ -113,12 +117,13 @@ class SkillMetadata:
 ```
 
 **TypeScript Adaptation:**
+
 ```typescript
 interface SkillMetadata {
-    name: string;
-    description: string;
-    version: string;
-    triggers: string[];
+  name: string;
+  description: string;
+  version: string;
+  triggers: string[];
 }
 ```
 
@@ -126,7 +131,8 @@ interface SkillMetadata {
 
 **Concept:** Load minimal metadata first, full instructions on demand
 
-**X4 Application:** 
+**X4 Application:**
+
 - Load MCP tool names/descriptions initially
 - Fetch detailed schemas when tool is invoked
 - Reduces context overhead
@@ -134,12 +140,14 @@ interface SkillMetadata {
 ### 3. Validation Pipeline
 
 **Pattern:**
+
 1. Load skill file
 2. Validate structure
 3. Check dependencies
 4. Register with agent
 
 **X4 Application:**
+
 - Validate MCP tool schemas on startup
 - Check X4 REST API compatibility
 - Register tools with MCP protocol
@@ -147,11 +155,13 @@ interface SkillMetadata {
 ### 4. Security Features
 
 **Implemented:**
+
 - Path traversal prevention
 - Safe script execution
 - Input sanitization
 
 **X4 Application:**
+
 - Validate user inputs before X4 API calls
 - Sanitize game data before display
 - Prevent injection in queries
@@ -162,12 +172,12 @@ interface SkillMetadata {
 
 ### Priority: 🟦 COULD HAVE
 
-| Aspect | Assessment |
-|--------|------------|
-| **X4 Relevance** | Low - Python-specific |
-| **Pattern Value** | High - Type safety, validation |
-| **Integration Effort** | N/A - Pattern study only |
-| **Recommendation** | Study patterns, adapt to TypeScript |
+| Aspect                 | Assessment                          |
+| ---------------------- | ----------------------------------- |
+| **X4 Relevance**       | Low - Python-specific               |
+| **Pattern Value**      | High - Type safety, validation      |
+| **Integration Effort** | N/A - Pattern study only            |
+| **Recommendation**     | Study patterns, adapt to TypeScript |
 
 ### Key Takeaways
 

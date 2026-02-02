@@ -41,12 +41,12 @@ Predefined Python skill modules for the FreeAct agent framework. FreeAct agents 
 
 ## Skill Examples
 
-| Skill Type | Description | Approach |
-|------------|-------------|----------|
-| **Data Querying** | Database and API queries | Python code execution |
-| **API Integrations** | External service calls | Direct HTTP/SDK |
-| **Search/Extraction** | Information retrieval | Code-based parsing |
-| **Automation** | Multi-step workflows | Composed Python |
+| Skill Type            | Description              | Approach              |
+| --------------------- | ------------------------ | --------------------- |
+| **Data Querying**     | Database and API queries | Python code execution |
+| **API Integrations**  | External service calls   | Direct HTTP/SDK       |
+| **Search/Extraction** | Information retrieval    | Code-based parsing    |
+| **Automation**        | Multi-step workflows     | Composed Python       |
 
 ---
 
@@ -55,12 +55,15 @@ Predefined Python skill modules for the FreeAct agent framework. FreeAct agents 
 ### Overall Assessment
 
 **Q1: Primary workflow support?**
+
 - [ ] NO - Python code-action is different paradigm from MCP
 
 **Q3: Meaningful improvement for common cases?**
+
 - [ ] NO - X4 MCP server uses TypeScript, tool-based approach
 
 **Q4: Cheap + low-risk?**
+
 - [x] YES - Patterns are interesting to study
 
 ### Category: 🚫 DROP (Different Paradigm)
@@ -95,12 +98,12 @@ Predefined Python skill modules for the FreeAct agent framework. FreeAct agents 
 
 ### Priority: 🚫 DROP
 
-| Aspect | Assessment |
-|--------|------------|
-| **X4 Relevance** | None - Different paradigm |
-| **Pattern Value** | Low - Code-action vs tool-calling |
+| Aspect                 | Assessment                          |
+| ---------------------- | ----------------------------------- |
+| **X4 Relevance**       | None - Different paradigm           |
+| **Pattern Value**      | Low - Code-action vs tool-calling   |
 | **Integration Effort** | High - Would require paradigm shift |
-| **Recommendation** | Skip, incompatible approach |
+| **Recommendation**     | Skip, incompatible approach         |
 
 ### Key Takeaway
 

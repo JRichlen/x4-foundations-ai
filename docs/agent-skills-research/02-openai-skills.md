@@ -18,11 +18,11 @@ The official OpenAI Skills Catalog for Codex, organized in a three-tier system (
 
 ### Tier Structure
 
-| Tier | Directory | Distribution | Stability | Use Case |
-|------|-----------|--------------|-----------|----------|
-| **System** | `skills/.system/` | Auto-bundled | Core & stable | Skill management |
-| **Curated** | `skills/.curated/` | Install by name | Production-ready | Day-to-day use |
-| **Experimental** | `skills/.experimental/` | Install by path/URL | In development | Prototyping |
+| Tier             | Directory               | Distribution        | Stability        | Use Case         |
+| ---------------- | ----------------------- | ------------------- | ---------------- | ---------------- |
+| **System**       | `skills/.system/`       | Auto-bundled        | Core & stable    | Skill management |
+| **Curated**      | `skills/.curated/`      | Install by name     | Production-ready | Day-to-day use   |
+| **Experimental** | `skills/.experimental/` | Install by path/URL | In development   | Prototyping      |
 
 ---
 
@@ -30,26 +30,26 @@ The official OpenAI Skills Catalog for Codex, organized in a three-tier system (
 
 ### System Skills
 
-| Skill | Type | Description | X4 Relevance |
-|-------|------|-------------|--------------|
-| **skill-creator** | Meta | Initialize new skills with templates | 🟨 SHOULD - Skill development |
-| **skill-installer** | Meta | Install skills from registry | 🟨 SHOULD - Skill management |
+| Skill               | Type | Description                          | X4 Relevance                  |
+| ------------------- | ---- | ------------------------------------ | ----------------------------- |
+| **skill-creator**   | Meta | Initialize new skills with templates | 🟨 SHOULD - Skill development |
+| **skill-installer** | Meta | Install skills from registry         | 🟨 SHOULD - Skill management  |
 
 ### Curated Skills
 
-| Skill | Type | Description | X4 Relevance |
-|-------|------|-------------|--------------|
-| **gh-address-comments** | Automation | Manage GitHub PR comments | 🟦 COULD - Development workflow |
-| **gh-fix-ci** | Automation | Repair CI issues on GitHub | 🟦 COULD - Development workflow |
-| **notion-knowledge-capture** | Integration | Notion data management | 🚫 DROP - Not relevant |
-| **linear-integration** | Integration | Linear project management | 🚫 DROP - Not relevant |
+| Skill                        | Type        | Description                | X4 Relevance                    |
+| ---------------------------- | ----------- | -------------------------- | ------------------------------- |
+| **gh-address-comments**      | Automation  | Manage GitHub PR comments  | 🟦 COULD - Development workflow |
+| **gh-fix-ci**                | Automation  | Repair CI issues on GitHub | 🟦 COULD - Development workflow |
+| **notion-knowledge-capture** | Integration | Notion data management     | 🚫 DROP - Not relevant          |
+| **linear-integration**       | Integration | Linear project management  | 🚫 DROP - Not relevant          |
 
 ### Experimental Skills (Patterns)
 
-| Skill | Type | Description | X4 Relevance |
-|-------|------|-------------|--------------|
-| **create-plan** | Planning | Structured task planning | 🟨 SHOULD - Agent planning |
-| **code-review** | Automation | Automated code review | 🟦 COULD - Development quality |
+| Skill           | Type       | Description              | X4 Relevance                   |
+| --------------- | ---------- | ------------------------ | ------------------------------ |
+| **create-plan** | Planning   | Structured task planning | 🟨 SHOULD - Agent planning     |
+| **code-review** | Automation | Automated code review    | 🟦 COULD - Development quality |
 
 ---
 
@@ -61,14 +61,17 @@ The official OpenAI Skills Catalog for Codex, organized in a three-tier system (
 **Language:** JavaScript/Shell
 
 #### Description
+
 Core skill for installing other skills from the registry, GitHub repositories, or local paths. Provides the foundation for skill distribution.
 
 #### Evaluation
 
 **Q1: Primary workflow support?**
+
 - [ ] NO - Skill installation is developer workflow, not game assistant
 
 **Q3: Meaningful improvement for common cases?**
+
 - [x] YES - Enables easy extension of X4 assistant capabilities
 
 #### Category: 🟨 SHOULD HAVE
@@ -76,6 +79,7 @@ Core skill for installing other skills from the registry, GitHub repositories, o
 **Reason:** Understanding skill installation patterns enables future extensibility and plugin architecture.
 
 #### Integration Notes
+
 - Study installation source handling (registry, GitHub, local)
 - Consider adopting for X4 skill/plugin distribution
 - Security validation patterns worth adopting
@@ -90,17 +94,21 @@ Core skill for installing other skills from the registry, GitHub repositories, o
 **Language:** JavaScript
 
 #### Description
+
 Automates common GitHub development tasks like addressing PR comments and fixing CI issues.
 
 #### Evaluation
 
 **Q1: Primary workflow support?**
+
 - [ ] NO - Development workflow, not game assistant
 
 **Q3: Meaningful improvement for common cases?**
+
 - [ ] NO - Specific to development, users won't interact with this
 
 **Q4: Cheap + low-risk?**
+
 - [x] YES - Patterns are simple and safe to study
 
 #### Category: 🟦 COULD HAVE
@@ -108,6 +116,7 @@ Automates common GitHub development tasks like addressing PR comments and fixing
 **Reason:** Good reference for GitHub API integration patterns if needed later.
 
 #### Integration Notes
+
 - GitHub API patterns could be useful for future integrations
 - CI automation patterns transferable to other systems
 
@@ -121,14 +130,17 @@ Automates common GitHub development tasks like addressing PR comments and fixing
 **Language:** Markdown/Pattern
 
 #### Description
+
 Structured approach to task planning with decomposition and dependency management.
 
 #### Evaluation
 
 **Q1: Primary workflow support?**
+
 - [ ] NO - Planning is support function, not primary
 
 **Q3: Meaningful improvement for common cases?**
+
 - [x] YES - Better planning leads to better automation execution
 
 #### Category: 🟨 SHOULD HAVE
@@ -136,6 +148,7 @@ Structured approach to task planning with decomposition and dependency managemen
 **Reason:** Planning patterns improve complex query handling and multi-step automation workflows.
 
 #### Integration Notes
+
 - Task decomposition patterns for complex game queries
 - Dependency tracking for multi-step automations
 - Can adapt for X4 trade route planning or fleet management
@@ -185,13 +198,13 @@ skill-name/
 
 ### Priority Categories
 
-| Category | Count | Skills |
-|----------|-------|--------|
-| ✅ MUST HAVE | 0 | - |
-| 🟩 NEED TO HAVE | 0 | - |
-| 🟨 SHOULD HAVE | 3 | skill-installer, skill-creator, create-plan |
-| 🟦 COULD HAVE | 2 | gh-address-comments, gh-fix-ci |
-| 🚫 DROP | 2+ | notion-knowledge-capture, linear-integration |
+| Category        | Count | Skills                                       |
+| --------------- | ----- | -------------------------------------------- |
+| ✅ MUST HAVE    | 0     | -                                            |
+| 🟩 NEED TO HAVE | 0     | -                                            |
+| 🟨 SHOULD HAVE  | 3     | skill-installer, skill-creator, create-plan  |
+| 🟦 COULD HAVE   | 2     | gh-address-comments, gh-fix-ci               |
+| 🚫 DROP         | 2+    | notion-knowledge-capture, linear-integration |
 
 ### Key Takeaways
 

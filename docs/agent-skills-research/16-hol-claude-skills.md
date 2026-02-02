@@ -18,12 +18,12 @@ Claude skills for agent discovery, Universal Agent ID (UAID) resolution, and AI 
 
 ### Slash Commands
 
-| Command | Description |
-|---------|-------------|
-| `/hol-search` | Search HOL Registry for agents by keyword |
+| Command        | Description                                              |
+| -------------- | -------------------------------------------------------- |
+| `/hol-search`  | Search HOL Registry for agents by keyword                |
 | `/hol-resolve` | Resolve agent by UAID (e.g., `hcs10://0.0.123456/agent`) |
-| `/hol-stats` | Get registry statistics |
-| `/hol-chat` | Chat with an agent by UAID |
+| `/hol-stats`   | Get registry statistics                                  |
+| `/hol-chat`    | Chat with an agent by UAID                               |
 
 ### Universal Agent ID (UAID)
 
@@ -45,12 +45,15 @@ Claude skills for agent discovery, Universal Agent ID (UAID) resolution, and AI 
 ### Overall Assessment
 
 **Q1: Primary workflow support?**
+
 - [ ] NO - Web3/Hedera not part of X4 game assistant
 
 **Q3: Meaningful improvement for common cases?**
+
 - [ ] NO - Blockchain agent discovery not relevant to X4
 
 **Q4: Cheap + low-risk?**
+
 - [ ] NO - Would require Hedera/Web3 integration
 
 ### Category: 🚫 DROP (Not Relevant)
@@ -85,12 +88,12 @@ Claude skills for agent discovery, Universal Agent ID (UAID) resolution, and AI 
 
 ### Priority: 🚫 DROP
 
-| Aspect | Assessment |
-|--------|------------|
-| **X4 Relevance** | None - Web3/Hedera specific |
-| **Pattern Value** | Low - Different domain |
-| **Integration Effort** | High - Blockchain setup |
-| **Recommendation** | Skip entirely |
+| Aspect                 | Assessment                  |
+| ---------------------- | --------------------------- |
+| **X4 Relevance**       | None - Web3/Hedera specific |
+| **Pattern Value**      | Low - Different domain      |
+| **Integration Effort** | High - Blockchain setup     |
+| **Recommendation**     | Skip entirely               |
 
 ### Key Takeaway
 

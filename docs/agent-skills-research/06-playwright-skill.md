@@ -89,14 +89,17 @@ cp -r playwright-skill/playwright-skill ~/.claude/skills/
 **Language:** JavaScript (Playwright)
 
 #### Description
+
 Enables Claude to autonomously create and execute browser automation tasks via Playwright, including functional testing, UI validation, form interactions, and authentication flows.
 
 #### Evaluation
 
 **Q1: Primary workflow support?**
+
 - [x] YES - Testing is part of development workflow for overlay UI
 
 **Q2: Hard failure or safety risk if missing?**
+
 - [ ] NO - Manual testing possible, but automation improves quality
 
 #### Category: 🟩 NEED TO HAVE
@@ -106,12 +109,14 @@ Enables Claude to autonomously create and execute browser automation tasks via P
 #### Integration Notes
 
 **For X4 Assistant:**
+
 1. **Overlay Testing:** Automated component and integration tests
 2. **Visual Validation:** Screenshot-based assertions
 3. **User Flow Testing:** Multi-step interaction verification
 4. **Regression Prevention:** Automated test suite
 
 **Technical Considerations:**
+
 - Playwright dependency already common in testing
 - Works with React Testing Library patterns
 - CI/CD integration straightforward
@@ -124,13 +129,13 @@ Enables Claude to autonomously create and execute browser automation tasks via P
 
 ### vs. dev-browser
 
-| Feature | playwright-skill | dev-browser |
-|---------|-----------------|-------------|
-| **Focus** | Test automation | Full browser control |
-| **Sessions** | Test-scoped | Persistent |
-| **Scripts** | Dynamic generation | Batch or interactive |
-| **DOM Access** | Standard Playwright | LLM-optimized |
-| **Primary Use** | Testing | Automation + scraping |
+| Feature         | playwright-skill    | dev-browser           |
+| --------------- | ------------------- | --------------------- |
+| **Focus**       | Test automation     | Full browser control  |
+| **Sessions**    | Test-scoped         | Persistent            |
+| **Scripts**     | Dynamic generation  | Batch or interactive  |
+| **DOM Access**  | Standard Playwright | LLM-optimized         |
+| **Primary Use** | Testing             | Automation + scraping |
 
 **Recommendation:** Use playwright-skill for testing, dev-browser for automation workflows.
 
@@ -192,10 +197,13 @@ test('MCP tool returns data', async ({ page }) => {
 
 ```markdown
 # SKILL.md
+
 ## Quick Reference
+
 [Minimal instructions for common tasks]
 
 ## Full API Reference
+
 [Detailed docs, loaded on demand]
 ```
 
@@ -237,12 +245,12 @@ const playwrightPath = require.resolve('playwright');
 
 ### Priority Assessment
 
-| Aspect | Rating | Notes |
-|--------|--------|-------|
-| **X4 Relevance** | High | Essential for UI testing |
-| **Complexity** | Low | Familiar Playwright patterns |
-| **Dependencies** | Low | Standard testing tools |
-| **Maintenance** | Low | Well-maintained project |
+| Aspect           | Rating | Notes                        |
+| ---------------- | ------ | ---------------------------- |
+| **X4 Relevance** | High   | Essential for UI testing     |
+| **Complexity**   | Low    | Familiar Playwright patterns |
+| **Dependencies** | Low    | Standard testing tools       |
+| **Maintenance**  | Low    | Well-maintained project      |
 
 ### Category: 🟩 NEED TO HAVE
 

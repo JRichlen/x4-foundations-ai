@@ -71,12 +71,15 @@ python3 main.py stop YOUR_AGENT_ID
 ### Overall Assessment
 
 **Q1: Primary workflow support?**
+
 - [ ] NO - Multi-agent orchestration is advanced feature
 
 **Q3: Meaningful improvement for common cases?**
+
 - [ ] NO - Single-agent sufficient for Phase 1-3
 
 **Q4: Cheap + low-risk?**
+
 - [x] YES - Simple to study, minimal dependencies
 
 ### Category: 🟦 COULD HAVE (Future)
@@ -89,12 +92,12 @@ python3 main.py stop YOUR_AGENT_ID
 
 ### Phase 4+ Advanced Automation
 
-| Use Case | Description | Complexity |
-|----------|-------------|------------|
-| **Parallel Fleet Monitoring** | Multiple agents tracking different fleets | High |
-| **Concurrent Station Queries** | Parallel data collection across regions | Medium |
-| **Background Task Workers** | Long-running automation jobs | Medium |
-| **Multi-Game Instance** | Managing multiple X4 saves | Low priority |
+| Use Case                       | Description                               | Complexity   |
+| ------------------------------ | ----------------------------------------- | ------------ |
+| **Parallel Fleet Monitoring**  | Multiple agents tracking different fleets | High         |
+| **Concurrent Station Queries** | Parallel data collection across regions   | Medium       |
+| **Background Task Workers**    | Long-running automation jobs              | Medium       |
+| **Multi-Game Instance**        | Managing multiple X4 saves                | Low priority |
 
 ### Example Architecture
 
@@ -122,8 +125,9 @@ python3 main.py stop YOUR_AGENT_ID
 
 ```markdown
 # agents/EMP_001.md
+
 Agent: Fleet Monitor
-Schedule: */5 * * * *
+Schedule: _/5 _ \* \* \*
 Task: Check fleet status
 ```
 
@@ -156,12 +160,12 @@ tail -f logs/agent_name.log
 
 ### Priority: 🟦 COULD HAVE (Phase 4+)
 
-| Aspect | Assessment |
-|--------|------------|
-| **X4 Relevance** | Low - Advanced feature |
-| **Pattern Value** | Medium - Agent lifecycle patterns |
-| **Integration Effort** | Medium - tmux dependency |
-| **Recommendation** | Defer to Phase 4+ |
+| Aspect                 | Assessment                        |
+| ---------------------- | --------------------------------- |
+| **X4 Relevance**       | Low - Advanced feature            |
+| **Pattern Value**      | Medium - Agent lifecycle patterns |
+| **Integration Effort** | Medium - tmux dependency          |
+| **Recommendation**     | Defer to Phase 4+                 |
 
 ### Key Takeaways
 
