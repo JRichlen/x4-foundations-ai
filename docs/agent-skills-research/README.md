@@ -14,7 +14,12 @@ agent-skills-research/
 ├── 04-skillcreatorai.md           # Ai-Agent-Skills research ✅
 ├── 05-dev-browser.md              # dev-browser research ✅
 ├── 06-playwright-skill.md         # playwright-skill research ✅
-├── [additional-sources].md        # Phase 2: Remaining sources (in progress)
+├── 07-huggingface-skills.md       # huggingface/skills research ✅ (DROP)
+├── 08-awesome-claude-skills.md    # awesome-claude-skills research ✅
+├── 09-pydantic-ai-skills.md       # pydantic-ai-skills research ✅
+├── 10-agent-manager-skill.md      # agent-manager-skill research ✅
+├── 11-sheets-cli.md               # sheets-cli research ✅
+├── [remaining-sources].md         # Phase 2: Lower priority (5 remaining)
 └── FINAL-REPORT.md                # Phase 3: Synthesis and recommendations
 ```
 
@@ -32,7 +37,7 @@ Quick pass through all sources to identify viable ones.
 
 Deep dive into each viable source, evaluating individual skills.
 
-**Status:** 🟡 In Progress (6/16 complete)  
+**Status:** 🟡 In Progress (11/16 complete)  
 **Output:** One `[source-name].md` file per researched source
 
 **High Priority Sources (✅ ALL COMPLETE):**
@@ -43,12 +48,15 @@ Deep dive into each viable source, evaluating individual skills.
 5. ✅ SawyerHood/dev-browser - [Report](./05-dev-browser.md)
 6. ✅ lackeyjb/playwright-skill - [Report](./06-playwright-skill.md)
 
-**Medium Priority Sources (Pending):**
-7. huggingface/skills
-8. karanb192/awesome-claude-skills
-9. DougTrajano/pydantic-ai-skills
-10. fractalmind-ai/agent-manager-skill
-11. gmickel/sheets-cli
+**Medium Priority Sources (✅ ALL COMPLETE):**
+7. ✅ huggingface/skills - [Report](./07-huggingface-skills.md) - DROP (ML-specific)
+8. ✅ karanb192/awesome-claude-skills - [Report](./08-awesome-claude-skills.md) - Reference
+9. ✅ DougTrajano/pydantic-ai-skills - [Report](./09-pydantic-ai-skills.md) - Patterns
+10. ✅ fractalmind-ai/agent-manager-skill - [Report](./10-agent-manager-skill.md) - Future
+11. ✅ gmickel/sheets-cli - [Report](./11-sheets-cli.md) - Data export
+
+**Lower Priority Sources (Pending):**
+12-16. gradion-ai/freeact-skills, claude-d3js-skill, obsidian-plugin-skill, csv-data-summarizer, hol-claude-skills
 
 ### Phase 3: Synthesis
 
@@ -57,17 +65,19 @@ Compile findings, identify overlaps, create prioritized recommendations.
 **Status:** ⚪ Not Started  
 **Output:** `FINAL-REPORT.md`
 
-## Preliminary Findings from High-Priority Sources
+## Preliminary Findings
 
 ### Skills by Priority Category
 
 | Category | Skills Identified |
 |----------|------------------|
 | ✅ **MUST HAVE** | mcp-builder, context-fundamentals, tool-design |
-| 🟩 **NEED TO HAVE** | webapp-testing, memory-systems, context-compression, context-degradation, dev-browser, playwright-skill, backend-development, testing-patterns |
-| 🟨 **SHOULD HAVE** | xlsx/docx/pdf, skill-creator, skill-installer, create-plan, multi-agent-patterns, evaluation, frontend-design, react-best-practices |
-| 🟦 **COULD HAVE** | algorithmic-art, canvas-design, gh-address-comments, gh-fix-ci |
-| 🚫 **DROP** | slack-gif-creator, brand-guidelines, notion-integration, etc. |
+| 🟩 **NEED TO HAVE** | webapp-testing, memory-systems*, context-compression, context-degradation, dev-browser, playwright-skill, backend-development, testing-patterns |
+| 🟨 **SHOULD HAVE** | xlsx/docx/pdf, skill-creator, skill-installer, create-plan, multi-agent-patterns, evaluation, frontend-design, react-best-practices, sheets-cli |
+| 🟦 **COULD HAVE** | algorithmic-art, canvas-design, gh-address-comments, gh-fix-ci, agent-manager (future), pydantic patterns |
+| 🚫 **DROP** | huggingface skills (ML-specific), slack-gif-creator, brand-guidelines, notion-integration |
+
+*\* memory-systems: Patterns valuable; implementation may use [steveyegge/beads](https://github.com/steveyegge/beads) instead of custom build*
 
 ### Key Patterns Discovered
 
@@ -76,6 +86,7 @@ Compile findings, identify overlaps, create prioritized recommendations.
 3. **Tiered Organization:** System → Curated → Experimental
 4. **Context Engineering:** Fundamentals, compression, optimization
 5. **LLM-Friendly Output:** Design responses for AI consumption
+6. **Memory with Beads:** Git-backed structured memory with auto-compaction
 
 ## How to Use
 
@@ -110,4 +121,4 @@ Results in 5 categories:
 
 **Last Updated:** 2026-02-02  
 **Phase 1 Completed:** 2026-02-02  
-**Phase 2 Progress:** 6/16 high-priority sources complete
+**Phase 2 Progress:** 11/16 sources complete (High + Medium priority done)

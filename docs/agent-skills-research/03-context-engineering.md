@@ -143,6 +143,20 @@ Designing memory frameworks for agent systems:
 
 #### Integration Notes
 - Implement session-level memory for conversation context
+
+#### Potential Implementation: steveyegge/beads
+
+**Note:** If using [steveyegge/beads](https://github.com/steveyegge/beads) for memory:
+- Beads provides **git-backed, structured memory** with dependency-aware task graphs
+- Built-in **compaction/summarization** to prevent context window bloat
+- **Agent-optimized JSON output** - no custom parsing needed
+- Handles **multi-session persistence** automatically via git workflows
+
+**Impact on memory-systems skill:**
+- The *patterns* from memory-systems (short-term, long-term, graph-based) remain valuable for **understanding** memory architecture
+- Beads would serve as the **implementation layer**, reducing custom development effort
+- Focus shifts from "build memory system" to "integrate with Beads"
+- Estimated effort drops from Medium (1-3 days) to Small (< 1 day) for integration
 - Consider persistent storage for user preferences
 - Graph memory could track X4 entity relationships
 
