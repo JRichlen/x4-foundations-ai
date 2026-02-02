@@ -216,6 +216,148 @@ X4 Game → HTTP POST → X4-External-App Server (Node.js) → MCP Server (TypeS
 
 ---
 
+## Advanced Use Cases: Station Inventory & AI-Triggered Actions
+
+Based on the requirement to access deeper game data (station inventories, stores) and trigger remote purchases via AI, here's an analysis of what's possible:
+
+### What X4's Modding System Allows
+
+#### Read Operations (Data Access)
+- **Station inventories**: ✅ Accessible via Lua/MD scripts
+- **Station stores/prices**: ✅ Accessible via Lua/MD scripts
+- **Ship inventories**: ✅ Accessible via Lua/MD scripts
+- **Trade offers/orders**: ✅ Accessible via Lua/MD scripts
+- **Economy data**: ✅ Accessible via Lua/MD scripts
+
+#### Write Operations (Game Modifications)
+- **Direct inventory manipulation**: ⚠️ Limited - X4 expects all resource flow via trade orders
+- **Create buy/sell orders**: ✅ Possible via MD scripts (trade offer manipulation)
+- **Trigger trader behavior**: ✅ Possible by manipulating trade AI settings
+- **Force inventory changes**: ⚠️ Only in mission/plot contexts, not general-purpose
+
+### Recommended Architecture for AI-Triggered Actions
+
+```
+┌─────────────────────────────────────────────────────────────────────┐
+│                         AI Agent (Claude/GPT)                        │
+└─────────────────────────────────────────────────────────────────────┘
+                                    │
+                                    ▼ MCP Protocol
+┌─────────────────────────────────────────────────────────────────────┐
+│                    MCP Server (TypeScript/Node.js)                   │
+│  ┌─────────────────┐  ┌─────────────────┐  ┌─────────────────────┐  │
+│  │ Read Tools      │  │ Write Tools     │  │ Query Tools         │  │
+│  │ - get_stations  │  │ - place_order   │  │ - find_best_price   │  │
+│  │ - get_inventory │  │ - assign_trader │  │ - calculate_route   │  │
+│  │ - get_prices    │  │ - set_trade_rule│  │ - analyze_economy   │  │
+│  └─────────────────┘  └─────────────────┘  └─────────────────────┘  │
+└─────────────────────────────────────────────────────────────────────┘
+                                    │
+                    ┌───────────────┴───────────────┐
+                    ▼                               ▼
+        HTTP POST (commands)              HTTP GET (data requests)
+                    │                               │
+                    └───────────────┬───────────────┘
+                                    ▼
+┌─────────────────────────────────────────────────────────────────────┐
+│              Custom X4 Extension (Lua + MD Scripts)                  │
+│  ┌─────────────────────────────────────────────────────────────┐    │
+│  │ djfhe_http mod (HTTP client)                                 │    │
+│  └─────────────────────────────────────────────────────────────┘    │
+│  ┌─────────────────────────────────────────────────────────────┐    │
+│  │ Data Collector Module                                        │    │
+│  │ - Polls game state                                           │    │
+│  │ - Pushes updates to MCP server                               │    │
+│  └─────────────────────────────────────────────────────────────┘    │
+│  ┌─────────────────────────────────────────────────────────────┐    │
+│  │ Command Executor Module                                      │    │
+│  │ - Receives commands from MCP server                          │    │
+│  │ - Executes trade orders via MD scripts                       │    │
+│  │ - Manipulates station trade rules                            │    │
+│  └─────────────────────────────────────────────────────────────┘    │
+└─────────────────────────────────────────────────────────────────────┘
+                                    │
+                                    ▼
+┌─────────────────────────────────────────────────────────────────────┐
+│                       X4: Foundations Game                           │
+└─────────────────────────────────────────────────────────────────────┘
+```
+
+### Implementation Approach Recommendation
+
+**Do NOT create a custom DLL injection service.** Instead:
+
+#### Phase 1: Build on Existing Foundation
+1. **Use djfhe_http** as the network bridge (proven, maintained)
+2. **Fork/extend X4-External-App's mod** for data collection
+3. **Add command execution** via MD scripts for write operations
+
+#### Phase 2: Custom Extension Development
+Create a custom X4 extension that:
+1. **Collects deep game data** (stations, inventories, prices, ships)
+2. **Exposes REST endpoints** via the Node.js server
+3. **Accepts commands** for trade operations
+
+#### Why This Approach?
+| Factor | DLL Injection | Lua/MD Extension |
+|--------|---------------|------------------|
+| **Stability** | Fragile with game updates | Uses official extension system |
+| **Complexity** | High (C++/Rust, reverse engineering) | Medium (Lua/XML, documented APIs) |
+| **Maintenance** | Must update with every game patch | More resilient to updates |
+| **Community Support** | Limited | SirNukes APIs, djfhe_http, etc. |
+| **Write Operations** | Would need game function hooks | Uses game's intended scripting |
+
+### Key Resources for Custom Development
+
+1. **SirNukes Mod Support APIs** - Essential for Lua scripting in X4
+   - [Nexus Mods](https://www.nexusmods.com/x4foundations/mods/503)
+   - [Steam Workshop](https://steamcommunity.com/workshop/filedetails/?id=2042901274)
+
+2. **djfhe x4_http** - HTTP client for Lua
+   - [GitHub](https://github.com/djfhe/x4_http)
+
+3. **Automated Player Station Logistics** - Reference for trade automation patterns
+   - [GitHub](https://github.com/tizubythefizo/X4-AutomatedPlayerStationLogistics)
+
+4. **ioTools-X4Foundations** - Modding toolkit and documentation
+   - [GitHub](https://github.com/iomatix/ioTools-X4Foundations)
+   - [Nexus Mods](https://www.nexusmods.com/x4foundations/mods/1420)
+
+### Example: AI-Triggered Remote Purchase Flow
+
+```
+1. User asks AI: "Buy 1000 energy cells for my station in Argon Prime"
+
+2. AI queries MCP Server:
+   - get_station_info(sector="Argon Prime")
+   - get_best_price(ware="energycells", quantity=1000)
+   - get_available_traders()
+
+3. MCP Server retrieves data from X4 extension
+
+4. AI decides optimal purchase strategy
+
+5. AI sends command to MCP Server:
+   - place_order(station_id, ware="energycells", quantity=1000, max_price=X)
+
+6. MCP Server sends command to X4 extension
+
+7. X4 extension executes via MD script:
+   - Creates/modifies buy order on station
+   - Optionally assigns available trader to fulfill
+
+8. Extension reports back status to MCP Server → AI → User
+```
+
+### Limitations to Be Aware Of
+
+1. **No instant transfers**: X4 requires commerce-based transactions; you can't teleport goods
+2. **Trade AI behavior**: Traders follow their own logic; orders are suggestions
+3. **Price-driven economy**: NPCs may outbid your orders if prices aren't competitive
+4. **Protected UI Mode**: Must be disabled for HTTP mod to work
+
+---
+
 ## References
 
 - [X4-rest-server GitHub](https://github.com/Alia5/X4-rest-server)
