@@ -25,17 +25,14 @@ This project is in active development. See [PRD.md](docs/PRD.md) for detailed ro
 
 ## 📦 Monorepo Structure
 
-```
-x4-foundations-ai/
-├── packages/
-│   ├── mcp-server/      # MCP Server implementation
-│   └── overlay/         # Browser overlay application
-├── vendor/
-│   └── x4-rest-server/  # X4 REST Server (submodule)
-├── docs/                # Documentation
-├── .github/             # CI/CD workflows
-└── AGENTS.md            # Agent orchestration plan
-```
+- **packages/** - Application packages
+  - **mcp-server/** - MCP Server implementation
+  - **overlay/** - Browser overlay application
+- **vendor/** - External dependencies
+  - **x4-rest-server/** - X4 REST Server (submodule)
+- **docs/** - Documentation
+- **.github/** - CI/CD workflows
+- **AGENTS.md** - Agent orchestration plan
 
 ## 🚀 Quick Start
 

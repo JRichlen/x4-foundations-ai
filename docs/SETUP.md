@@ -152,29 +152,26 @@ git commit -m "Update X4 REST Server submodule"
 
 ## Workspace Structure
 
-```
-x4-foundations-ai/
-├── .github/
-│   ├── workflows/          # GitHub Actions CI/CD
-│   └── copilot-instructions.md
-├── docs/
-│   ├── PRD.md             # Product Requirements Document
-│   ├── ARCHITECTURE.md    # Architecture documentation
-│   ├── API_REFERENCE.md   # API reference
-│   └── SETUP.md           # This file
-├── packages/
-│   ├── mcp-server/        # MCP Server package (Phase 2)
-│   └── overlay/           # Browser Overlay package (Phase 3)
-├── vendor/
-│   └── x4-rest-server/    # X4 REST Server submodule
-├── AGENTS.md              # Agent orchestration plan
-├── package.json           # Root package.json
-├── pnpm-workspace.yaml    # Workspace configuration
-├── tsconfig.base.json     # Base TypeScript config
-├── .eslintrc.cjs          # ESLint configuration
-├── .prettierrc            # Prettier configuration
-└── README.md              # Project overview
-```
+- **.github/** - GitHub configuration
+  - **workflows/** - GitHub Actions CI/CD
+  - **copilot-instructions.md** - Copilot guidance
+- **docs/** - Documentation
+  - **PRD.md** - Product Requirements Document
+  - **ARCHITECTURE.md** - Architecture documentation
+  - **API_REFERENCE.md** - API reference
+  - **SETUP.md** - This file
+- **packages/** - Application packages
+  - **mcp-server/** - MCP Server package (Phase 2)
+  - **overlay/** - Browser Overlay package (Phase 3)
+- **vendor/** - External dependencies
+  - **x4-rest-server/** - X4 REST Server submodule
+- **AGENTS.md** - Agent orchestration plan
+- **package.json** - Root package.json
+- **pnpm-workspace.yaml** - Workspace configuration
+- **tsconfig.base.json** - Base TypeScript config
+- **.eslintrc.cjs** - ESLint configuration
+- **.prettierrc** - Prettier configuration
+- **README.md** - Project overview
 
 ---
 
