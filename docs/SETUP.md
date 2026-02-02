@@ -132,8 +132,12 @@ Beads (bd) is a distributed, git-backed issue tracker for AI agents. It provides
 # Homebrew (recommended for macOS/Linux)
 brew install beads
 
-# npm
-npm install -g @beads/bd
+# npm (planned / optional)
+# NOTE: The npm package name for Beads may change. Check the official repo
+#       at https://github.com/steveyegge/beads for the latest npm install
+#       instructions and package name before using this method.
+# Example (update with the actual package name from the Beads docs):
+# npm install -g <beads-npm-package-name>
 
 # Go (requires Go 1.24+)
 go install github.com/steveyegge/beads/cmd/bd@latest
